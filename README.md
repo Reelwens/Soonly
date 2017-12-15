@@ -1,4 +1,4 @@
-# Nom du projet
+# Soonly
 
 Projet réalisé lors de notre cursus à [HETIC](http://www.hetic.net/ "HETIC").
 
