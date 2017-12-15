@@ -11,12 +11,12 @@
 
     <ion-item>
       <ion-label floating>Pseudonyme</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Âge</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input type="number" [(ngModel)]="age"></ion-input>
     </ion-item>
 
     <button (tap)="showDetails()" class="sendButton" ion-button full>Envoyer les informations</button>

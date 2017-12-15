@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-details',
@@ -7,8 +7,14 @@ import { NavController, AlertController } from 'ionic-angular';
 })
 export class DetailsPage {
 
-  constructor(public navCtrl: NavController) {
+  // Variables
+  username: string;
+  age: number;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    // Get data from old page
+    this.username = navParams.get('username');
+    this.age = navParams.get('age');
   }
 
 }
