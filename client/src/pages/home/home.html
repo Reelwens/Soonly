@@ -7,5 +7,19 @@
 </ion-header>
 
 <ion-content padding>
-    Hello.
+    <p>Hello.</p>
+
+    <ion-item>
+      <ion-label floating>Pseudonyme</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Âge</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <button (tap)="showDetails()" class="sendButton" ion-button full>Envoyer les informations</button>
+
+    <button (tap)="alertAction()" class="sendButton" ion-button full>Recevoir une alerte</button>
 </ion-content>
