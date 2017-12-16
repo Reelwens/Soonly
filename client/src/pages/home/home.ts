@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+
+// API
+//import { Service } from '../../services/soonly.service';
+
+// Pages
 import { DetailsPage } from '../details/details';
 
 @Component({
@@ -17,7 +22,7 @@ export class HomePage {
   }
 
   // Send data to a new page
-  private showDetails() {
+  showDetails() {
     this.navCtrl.push(DetailsPage, {
       username: this.username,
       age: this.age
