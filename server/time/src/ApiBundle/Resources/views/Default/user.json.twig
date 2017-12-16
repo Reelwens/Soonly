@@ -1,0 +1,9 @@
+{
+    "id": {{ user.id }},
+    "calendars": [
+        {% for calendar in user.calendars  %}
+        {{ calendar.id }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+
+}
