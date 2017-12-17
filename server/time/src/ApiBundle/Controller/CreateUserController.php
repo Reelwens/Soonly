@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class createUserController extends Controller {
+class CreateUserController extends Controller {
 	
 	/**
 	 * @Route("/api/createUser/{phone}/{surname}/{passwordHashed}")
@@ -34,6 +34,7 @@ class createUserController extends Controller {
 				// The user has been invited !
 				$em = $this->getDoctrine()->getManager();
 				
+				/** @var User $user */
 				$user = $checkuser;
 				$user->setSurname( $surname )
 				     ->setPassword( $passwordHashed );

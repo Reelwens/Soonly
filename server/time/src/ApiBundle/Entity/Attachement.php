@@ -39,7 +39,7 @@ abstract class Attachement
      */
     public function getId()
     {
-        return $this->id;
+        return $this->id_attachement;
     }
 
     /**

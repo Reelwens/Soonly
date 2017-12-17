@@ -9,11 +9,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class createEventController extends Controller {
+class CreateEventController extends Controller {
 	
 	
 	/**
-	 * @Route("/api/setEvent/{token}/{id}/{eventDate}/{eventNumber}/{id_attachement}")
+	 * @Route("/api/setEvent/{token}/{id}/{eventDate}/{eventNumber}/{attachement}")
 	 *
 	 *
 	 * @param string $token
@@ -24,7 +24,7 @@ class createEventController extends Controller {
 	 *
 	 * @return JsonResponse
 	 */
-	public function setEventAction($token, Calendar $calendar, $eventDate, $eventNumber, Attachement $attachement)
+	public function setEventAction($token, Calendar $calendar, $eventDate, $eventNumber, $attachement)
 	{
 		$data["success"] = false;
 		$token = $this->getDoctrine()
@@ -36,7 +36,7 @@ class createEventController extends Controller {
 			$data["error"] = "token.invalid";
 		} else {
 			
-			if ($calendar->getUser() == $token->getUser()) {
+			if ($calendar->getUser() === $token->getUser()) {
 				
 				$event = $this->getDoctrine()->getRepository("ApiBundle:Event")
 				                    ->findOneBy([
@@ -50,6 +50,9 @@ class createEventController extends Controller {
 				$event->setCalendar( $calendar );
 				$event->setDate( (new \DateTime())->setTimestamp(intval($eventDate)) );
 				$event->setEventNumber( $eventNumber );
+				
+				
+				$attachement = $this->getDoctrine()->getRepository( "ApiBundle:Attachement")->findOneBy(["id_attachement" => $attachement]);
 				$event->setAttachement( $attachement );
 				
 				$em = $this->getDoctrine()->getManager();

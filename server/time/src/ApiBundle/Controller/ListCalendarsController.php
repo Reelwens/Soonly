@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class listCalendarsController extends Controller {
+class ListCalendarsController extends Controller {
 	
 	
 	/**
@@ -19,11 +19,9 @@ class listCalendarsController extends Controller {
 	 *
 	 * @return JsonResponse
 	 */
-	public function createCalendarAction($token)
+	public function listCalendarsAction($token)
 	{
 		$data["success"] = false;
-		$data["calendarsReceived"] = [];
-		$data["calendarsOwned"] = [];
 		$token = $this->getDoctrine()
 		              ->getRepository( "ApiBundle:Token")
 		              ->findOneBy(["token" => $token]);
@@ -36,19 +34,23 @@ class listCalendarsController extends Controller {
 			/** @var User $user */
 			$user = $token->getUser();
 			
-			$calendarsOwned = $user->getCalendars();
-			
-			/** @var Calendar $calendar */
-			foreach ($calendarsOwned as $key => $calendar) {
-				$data["calendarsOwned"][$calendar->getId()] = ["name" => $calendar->getName()];
+			$calendarsReceiver = $user->getCalendarsReceiver()->getValues();
+			foreach ($calendarsReceiver as $key=>$calendar)
+			{
+				/** @var Calendar $calendar */
+				$data["calendarsReceiver"][$key]["id"] = $calendar->getId();
+				$data["calendarsReceiver"][$key]["name"] = $calendar->getName();
 			}
 			
-			$calendarsReceived = $user->getCalendarsReceiver();
-			
-			/** @var Calendar $calendar */
-			foreach ($calendarsReceived as $key => $calendar) {
-				$data["calendarsReceived"][$calendar->getId()] = ["name" => $calendar->getName()];
+			$calendars = $user->getCalendars()->getValues();
+			foreach ($calendars as $key=>$calendar)
+			{
+				/** @var Calendar $calendar */
+				$data["calendars"][$key]["id"] = $calendar->getId();
+				$data["calendars"][$key]["name"] = $calendar->getName();
 			}
+			
+			$data["success"] = true;
 		}
 		
 		return new JsonResponse($data);

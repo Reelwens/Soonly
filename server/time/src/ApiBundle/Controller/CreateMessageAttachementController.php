@@ -49,6 +49,7 @@ class CreateMessageAttachementController extends Controller {
 				$data["message"][$i] = $v;
 				unset($data["message"][$k]);
 			}
+			$data["message"]["id"] = $message->getId();
 			
 		}
 		

@@ -27,6 +27,7 @@ class MessageAttachement extends Attachement
      */
     private $theme;
     
+    
     /**
      * Set message
      *

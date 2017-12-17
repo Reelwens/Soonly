@@ -33,16 +33,29 @@ class DefaultController extends Controller
 			    $data["success"] = true;
 		    } else {
 			    $token = $this->getDoctrine()->getRepository( "ApiBundle:Token" )->findOneBy( [ "token" => $param ] );
-			    if ( $token != null ) {
+			    if ( $token !== null ) {
 				    /** @var User $user */
 				    $user         = $token->getUser();
-				    $data["user"] = (array) $user;
-				    foreach ( $data["user"] as $k => $v ) {
-					    // We remove the class path in keys
-					    $i                  = preg_match( '/^\x00(?:.*?)\x00(.+)/', $k, $matches ) ? $matches[1] : $k;
-					    $data["user"][ $i ] = $v;
-					    unset( $data["user"][ $k ] );
+				    
+				    $data["user"]["number"] = $user->getNumber();
+				    $data["user"]["surname"] = $user->getSurname();
+				    
+				    $calendarsReceiver = $user->getCalendarsReceiver()->getValues();
+				    foreach ($calendarsReceiver as $key=>$calendar)
+				    {
+					    /** @var Calendar $calendar */
+					    $data["user"]["calendarsReceiver"][$key]["id"] = $calendar->getId();
+					    $data["user"]["calendarsReceiver"][$key]["name"] = $calendar->getName();
 				    }
+				
+				    $calendars = $user->getCalendars()->getValues();
+				    foreach ($calendars as $key=>$calendar)
+				    {
+					    /** @var Calendar $calendar */
+					    $data["user"]["calendars"][$key]["id"] = $calendar->getId();
+					    $data["user"]["calendars"][$key]["name"] = $calendar->getName();
+				    }
+				    
 				    $data["user"]["token"] = $token->getToken();
 				    unset( $data["user"]["password"] );
 				    $data["success"] = true;
