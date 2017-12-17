@@ -41,6 +41,15 @@ class Event
 	 * @ORM\JoinColumn(name="calendar_id", referencedColumnName="id")
 	 */
 	private $calendar;
+	
+	
+	/**
+	 * @var Attachement
+	 *
+	 * @ORM\OneToOne(targetEntity="Attachement", inversedBy="event")
+	 * @ORM\JoinColumn(name="attachement_id", referencedColumnName="id_attachement")
+	 */
+	private $attachement;
 
 
     /**
@@ -106,11 +115,11 @@ class Event
     /**
      * Set calendar
      *
-     * @param \ApiBundle\Entity\Calendar $calendar
+     * @param Calendar $calendar
      *
      * @return Event
      */
-    public function setCalendar(\ApiBundle\Entity\Calendar $calendar = null)
+    public function setCalendar( Calendar $calendar = null)
     {
         $this->calendar = $calendar;
 
@@ -120,10 +129,34 @@ class Event
     /**
      * Get calendar
      *
-     * @return \ApiBundle\Entity\Calendar
+     * @return Calendar
      */
     public function getCalendar()
     {
         return $this->calendar;
+    }
+
+    /**
+     * Set attachement
+     *
+     * @param Attachement $attachement
+     *
+     * @return Event
+     */
+    public function setAttachement( Attachement $attachement = null)
+    {
+        $this->attachement = $attachement;
+
+        return $this;
+    }
+
+    /**
+     * Get attachement
+     *
+     * @return Attachement
+     */
+    public function getAttachement()
+    {
+        return $this->attachement;
     }
 }

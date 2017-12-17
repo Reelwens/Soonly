@@ -19,7 +19,7 @@ class createCalendarController extends Controller {
 	 * @param string $calendarName
 	 * @param string $phoneReceiver
 	 * @param mixed $timeStart
-	 * @param int $timeEnd
+	 * @param integer $timeEnd
 	 *
 	 * @return JsonResponse
 	 */
@@ -46,8 +46,14 @@ class createCalendarController extends Controller {
 				$calendar->setName( $calendarName );
 				$calendar->setUser( $token->getUser() );
 				$calendar->setReceiver( $receiver );
-				$calendar->setCreationDate( new \DateTime($timeStart) );
-				$calendar->setEndDate( new \DateTime($timeEnd) );
+				
+				if ($timeStart == "now" || intval($timeStart) == 0)
+				{
+					$calendar->setCreationDate( new \DateTime("now") );
+				} else {
+					$calendar->setCreationDate( (new \DateTime())->setTimestamp(intval($timeStart)) );
+				}
+				$calendar->setEndDate( (new \DateTime())->setTimestamp(intval($timeEnd)));
 				$calendar->setNumberOfEvents( 0 );
 				
 				$em = $this->getDoctrine()->getManager();

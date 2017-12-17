@@ -10,16 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="message_attachement")
  * @ORM\Entity(repositoryClass="ApiBundle\Repository\MessageAttachementRepository")
  */
-class MessageAttachement
+class MessageAttachement extends Attachement
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
      * @var string
@@ -34,18 +26,7 @@ class MessageAttachement
      * @ORM\Column(name="theme", type="string", length=255)
      */
     private $theme;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
+    
     /**
      * Set message
      *
@@ -94,4 +75,3 @@ class MessageAttachement
         return $this->theme;
     }
 }
-

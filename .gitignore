@@ -1,2 +1,14 @@
 
 server/symfony
+
+server/time/var/cache/dev/
+
+server/time/var/cache/prod/
+
+server/time/var/sessions/dev/
+
+\.idea/
+
+*.log
+
+*.php~
