@@ -1,3 +1,24 @@
+// Reset CSS
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    vertical-align:baseline;
+}
+
+
 // http://ionicframework.com/docs/theming/
 
 
@@ -14,3 +35,51 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.ion-page {
+
+  @media (min-width: 567px) {
+    flex-direction: row;
+  }
+
+  .mainContent {
+    width: 100vw;
+    height: calc(100vh - 50px);
+
+    @media (min-width: 567px) {
+      width: calc(100vw - 50px);
+      height: 100vh;
+      margin-left: 50px;
+    }
+
+    .header {
+      background-color: white;
+
+      .ion-md-arrow-back {
+        font-size: 1.5em;
+        padding: 20px;
+      }
+
+      h1 {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 20px;
+      }
+    }
+  }
+
+  .tabBar {
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+    background: #5994d9;
+
+    @media (min-width: 567px) {
+      width: 50px;
+      height: 100vh;
+    }
+  }
+}

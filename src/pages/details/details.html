@@ -1,19 +1,21 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Détails
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <div *ngIf="username && age">
-    <h4>Bienvenue {{ username }} !</h4>
-    <p>Vous avez {{ age }} ans.</p>
-    <p>{{ (age < 40) ? "Souhaitez-vous envoyer un message à votre grand-parent ?" : "Eh bien, on dirait que votre petit-fils vous a envoyé un message !" }}</p>
+<div class="mainContent">
+  <div class="header">
+    <h1>Détails</h1>
   </div>
 
-  <div *ngIf="!username || !age">
-    <h4>Tous les champs n'ont pas été renseignés.</h4>
-  </div>
-</ion-content>
+  <ion-content padding>
+    <div *ngIf="username && age">
+      <h4>Bienvenue {{ username }} !</h4>
+      <p>Vous avez {{ age }} ans.</p>
+      <p>{{ (age < 40) ? "Souhaitez-vous envoyer un message à votre grand-parent ?" : "Eh bien, on dirait que votre petit-fils vous a envoyé un message !" }}</p>
+    </div>
+
+    <div *ngIf="!username || !age">
+      <h4>Tous les champs n'ont pas été renseignés.</h4>
+    </div>
+  </ion-content>
+</div>
+
+<div class="tabBar hide-on-keyboard-open">
+  <p>Yo</p>
+</div>
