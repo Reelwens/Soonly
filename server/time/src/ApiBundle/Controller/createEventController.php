@@ -46,10 +46,22 @@ class createEventController extends Controller {
 				if ( $event === null ) {
 					$event = new Event();
 				}
+				$calendar->setNumberOfEvents($calendar->getNumberOfEvents()+1);
 				$event->setCalendar( $calendar );
 				$event->setDate( (new \DateTime())->setTimestamp(intval($eventDate)) );
 				$event->setEventNumber( $eventNumber );
 				$event->setAttachement( $attachement );
+				
+				$em = $this->getDoctrine()->getManager();
+				$em->persist( $event );
+				$em->flush();
+				
+				$attachement->setEvent( $event );
+				$em->persist($attachement);
+				$em->flush();
+				
+				
+				
 				$data["event"] = (array) $event;
 				$attach = (array)$event->getAttachement();
 				foreach ($data["event"] as $k => $v) {
