@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 export class Service {
 
   // Variables
-  private baseUrl: string = 'https://soonly.antoine-dunn.fr/api/';
+  private baseUrl: string = 'https://hetic.antoine-dunn.fr/h3/time/web/app_dev.php/api/';
   private apiKey: string = '<API_KEY>';
 
   constructor(private http: Http) { }
