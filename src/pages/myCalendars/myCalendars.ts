@@ -5,13 +5,13 @@ import { NavController, AlertController } from 'ionic-angular';
 //import { Service } from '../../services/soonly.service';
 
 // Pages
-import { DetailsPage } from '../details/details';
+import { ReceivedCalendarsPage } from '../receivedCalendars/receivedCalendars';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-myCalendars',
+  templateUrl: 'myCalendars.html'
 })
-export class HomePage {
+export class MyCalendarsPage {
 
   // Variables
   username: string;
@@ -22,8 +22,8 @@ export class HomePage {
   }
 
   // Send data to a new page
-  showDetails() {
-    this.navCtrl.push(DetailsPage, {
+  showReceivedCalendars() {
+    this.navCtrl.push(ReceivedCalendarsPage, {
       username: this.username,
       age: this.age
     });

@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 // Pages
-import { HomePage } from '../home/home';
+import { MyCalendarsPage } from '../myCalendars/myCalendars';
 
 @Component({
-  selector: 'page-details',
-  templateUrl: 'details.html'
+  selector: 'page-receivedCalendars',
+  templateUrl: 'receivedCalendars.html'
 })
-export class DetailsPage {
+export class ReceivedCalendarsPage {
 
   // Variables
   username: string;
@@ -21,8 +21,8 @@ export class DetailsPage {
   }
 
   // Send data to a new page
-  showHome() {
-    this.navCtrl.push(HomePage);
+  showMyCalendars() {
+    this.navCtrl.push(MyCalendarsPage);
   }
 
 }
