@@ -13,19 +13,14 @@ import { ReceivedCalendarsPage } from '../receivedCalendars/receivedCalendars';
 })
 export class MyCalendarsPage {
 
-  // Variables
-  username: string;
-  age: number;
-
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
     console.log("Hey");
   }
 
   // Send data to a new page
-  showReceivedCalendars() {
+  showReceivedCalendars(name: string) : void {
     this.navCtrl.push(ReceivedCalendarsPage, {
-      username: this.username,
-      age: this.age
+      username: name
     });
   }
 

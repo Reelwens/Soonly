@@ -9,15 +9,12 @@ import { MyCalendarsPage } from '../myCalendars/myCalendars';
   templateUrl: 'receivedCalendars.html'
 })
 export class ReceivedCalendarsPage {
-
-  // Variables
   username: string;
-  age: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // Get data from old page
     this.username = navParams.get('username');
-    this.age = navParams.get('age');
+    console.log('test')
+    console.log('Salut ' + this.username);
   }
 
   // Send data to a new page
