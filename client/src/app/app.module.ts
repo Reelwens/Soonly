@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 
 // Pages
 import { MyCalendarsReceivedPage } from '../pages/myCalendarsReceived/myCalendarsReceived';
+import { MyCalendarsSendPage } from '../pages/myCalendarsSend/myCalendarsSend';
 import { CalendarPage } from '../pages/calendar/calendar';
 
 // API
@@ -17,6 +18,7 @@ import { Service } from '../services/soonly.service';
   declarations: [
     MyApp,
     MyCalendarsReceivedPage,
+    MyCalendarsSendPage,
     CalendarPage
   ],
   imports: [
@@ -27,6 +29,7 @@ import { Service } from '../services/soonly.service';
   entryComponents: [
     MyApp,
     MyCalendarsReceivedPage,
+    MyCalendarsSendPage,
     CalendarPage
   ],
   providers: [

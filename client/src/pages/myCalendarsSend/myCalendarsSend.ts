@@ -6,13 +6,13 @@ import { NavController, AlertController } from 'ionic-angular';
 
 // Pages
 import { CalendarPage } from '../calendar/calendar';
-import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
+import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
 
 @Component({
-  selector: 'page-myCalendarsReceived',
-  templateUrl: 'myCalendarsReceived.html'
+  selector: 'page-myCalendarsSend',
+  templateUrl: 'myCalendarsSend.html'
 })
-export class MyCalendarsReceivedPage {
+export class MyCalendarsSendPage {
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
   }
@@ -24,11 +24,10 @@ export class MyCalendarsReceivedPage {
     });
   }
 
-  // Move to myCalendarSend page
-  showMyCalendarsSend(name: string) : void {
-    this.navCtrl.push(MyCalendarsSendPage);
+  // Move to myCalendarReceived page
+  showMyCalendarsReceived(name: string) : void {
+    this.navCtrl.push(MyCalendarsReceivedPage);
   }
-
 
   // Print alert
   alertAction() : void {
