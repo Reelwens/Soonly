@@ -7,8 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 // Pages
-import { MyCalendarsPage } from '../pages/myCalendars/myCalendars';
-import { ReceivedCalendarsPage } from '../pages/receivedCalendars/receivedCalendars';
+import { MyCalendarsReceivedPage } from '../pages/myCalendarsReceived/myCalendarsReceived';
+import { CalendarPage } from '../pages/calendar/calendar';
 
 // API
 import { Service } from '../services/soonly.service';
@@ -16,8 +16,8 @@ import { Service } from '../services/soonly.service';
 @NgModule({
   declarations: [
     MyApp,
-    MyCalendarsPage,
-    ReceivedCalendarsPage
+    MyCalendarsReceivedPage,
+    CalendarPage
   ],
   imports: [
     BrowserModule,
@@ -26,8 +26,8 @@ import { Service } from '../services/soonly.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MyCalendarsPage,
-    ReceivedCalendarsPage
+    MyCalendarsReceivedPage,
+    CalendarPage
   ],
   providers: [
     Service,

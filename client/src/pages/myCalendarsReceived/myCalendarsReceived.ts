@@ -5,22 +5,22 @@ import { NavController, AlertController } from 'ionic-angular';
 //import { Service } from '../../services/soonly.service';
 
 // Pages
-import { ReceivedCalendarsPage } from '../receivedCalendars/receivedCalendars';
+import { CalendarPage } from '../calendar/calendar';
 
 @Component({
-  selector: 'page-myCalendars',
-  templateUrl: 'myCalendars.html'
+  selector: 'page-myCalendarsReceived',
+  templateUrl: 'myCalendarsReceived.html'
 })
-export class MyCalendarsPage {
+export class MyCalendarsReceivedPage {
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
     console.log("Hey");
   }
 
   // Send data to a new page
-  showReceivedCalendars(name: string) : void {
-    this.navCtrl.push(ReceivedCalendarsPage, {
-      username: name
+  showCalendar(name: string) : void {
+    this.navCtrl.push(CalendarPage, {
+      calendarName: name
     });
   }
 
