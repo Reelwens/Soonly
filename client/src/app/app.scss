@@ -38,6 +38,22 @@ time, mark, audio, video {
 
 .ion-page {
 
+  .topHeader {
+    width: 100%;
+    height: 48px;
+    background-color: #08348c;
+    display: flex;
+
+    img {
+      width: 58px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 567px) {
+      display: none;
+    }
+  }
+
   @media (min-width: 567px) {
     flex-direction: row;
   }
@@ -45,7 +61,7 @@ time, mark, audio, video {
   .mainContent {
     background-color: white;
     width: 100vw;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 50px - 48px);
 
     @media (min-width: 567px) {
       width: calc(100vw - 119px);
@@ -54,10 +70,14 @@ time, mark, audio, video {
     }
 
     .header {
-      transition: all 0.1s;
-      height: 120px;
-      padding: 0 25px;
+      height: 80px;
+      padding: 0 16px;
       border-bottom: 1px solid #d4d9e8;
+
+      @media (min-width: 567px) {
+        height: 120px;
+        padding: 0 25px;
+      }
 
       .back {
         display: inline-block;
@@ -74,36 +94,57 @@ time, mark, audio, video {
 
       h1 {
         display: inline-block;
-        font-size: 36px;
-        font-weight: 400;
+        font-size: 24px;
+        font-weight: 500;
         color: #203c6c;
-        margin-top: 26px;
+        margin-top: 15px;
         letter-spacing: 0.1px;
+
+        @media (min-width: 567px) {
+          font-size: 36px;
+          margin-top: 26px;
+          font-weight: 400;
+        }
       }
 
       h2 {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 400;
         color: #a7b6d1;
-        margin-top: 5px;
+        margin-top: 4px;
+
+        @media (min-width: 567px) {
+          font-size: 18px;
+          font-weight: 400;
+          margin-top: 5px;
+        }
       }
     }
 
     .subHeader {
-      height: 80px;
+      height: 55px;
       border-bottom: 2px solid #d4d9e8;
       display: flex;
       justify-content: center;
 
+      @media (min-width: 567px) {
+        height: 80px;
+      }
+
       .title {
         position: relative;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
-        line-height: 78px;
+        line-height: 55px;
         text-transform: uppercase;
         height: 100%;
         color: #a7b6d1;
         padding: 0 23px;
+
+        @media (min-width: 567px) {
+          font-size: 16px;
+          line-height: 78px;
+        }
 
         .selectMark {
           position: absolute;
@@ -126,14 +167,18 @@ time, mark, audio, video {
 
     ion-content {
       background-color: inherit;
-      height: calc(100vh - 200px - 50px); // Remove header & tabBar
+      height: calc(100vh - 48px - 80px - 55px - 61px); // Remove header & tabBar
 
       @media (min-width: 567px) {
         height: calc(100vh - 200px);
       }
 
       .scroll-content {
-        padding: 25px;
+        padding: 25px 16px;
+
+        @media (min-width: 567px) {
+          padding: 25px;
+        }
 
         ion-item {
           background-color: inherit;
@@ -143,20 +188,23 @@ time, mark, audio, video {
   }
 
   .tabBar {
-    position: relative;
     z-index: 10;
     position: absolute;
     bottom: 0;
     width: 100vw;
-    height: 50px;
+    height: 61px;
     background-color: #08348c;
     color: white;
 
     .logoPlacement {
-      display: flex;
+      display: none;
       position: absolute;
       width: 100%;
       padding: 19px 0;
+
+      @media (min-width: 567px) {
+        display: flex;
+      }
 
       img {
         width: 58px;
@@ -167,30 +215,61 @@ time, mark, audio, video {
     .menu {
       height: 100%;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       text-align: center;
-      justify-content: center;
+      justify-content:center;
+
+      @media (min-width: 567px) {
+        flex-direction: column;
+        justify-content: center;
+      }
 
       .menuItem {
         position: relative;
-        padding: 20px 0;
+        width: 130px;
+        padding: 0 15px;
+
+        @media (min-width: 567px) {
+          padding: 20px 0;
+          width: auto;
+        }
 
         .borderLeft {
           position: absolute;
-          width: 4px;
-          height: calc(100% - 40px);
+          width: 80px;
+          margin-left: 10px;
+          height: 4px;
+          bottom: 0;
+          border-top-left-radius: 6px;
           border-top-right-radius: 6px;
-          border-bottom-right-radius: 6px;
+
+          @media (min-width: 567px) {
+            width: 4px;
+            height: calc(100% - 40px);
+            bottom: auto;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            margin-left: 0px;
+          }
         }
 
         img {
           width: 24px;
+          margin-top: 8px;
+
+          @media (min-width: 567px) {
+            margin-top: 0;
+          }
         }
 
         p {
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 400;
           color: #a7b6d1;
+
+          @media (min-width: 567px) {
+            font-weight: 500;
+          }
         }
 
         &.active {
