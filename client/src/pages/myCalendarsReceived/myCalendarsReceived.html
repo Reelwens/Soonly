@@ -4,14 +4,36 @@
     <h2>Dernier créé le 16 Décembre 2017</h2>
   </div>
 
-  <ion-content>
-    <div (tap)="showCalendar('Nouvel an chez Anne')" class="character">
-      <img src="assets/imgs/logo-soonly.svg" alt="Image">
-      <p>Nouvel an chez Anne</p>
+  <div class="subHeader">
+    <div class="title active">
+      <p>Calendriers reçus</p>
+      <div class="selectMark"></div>
     </div>
-    <div (tap)="showCalendar('Diner à la maison')" class="character">
-      <img src="assets/imgs/logo-soonly.svg" alt="Image">
-      <p>Diner à la maison</p>
+    <div class="title">
+      <p>Calendriers envoyés</p>
+      <div class="selectMark"></div>
+    </div>
+  </div>
+
+  <ion-content>
+    <div class="calendarGroup">
+
+      <div (tap)="showCalendar('Nouvel an chez Anne')" class="calendarBox">
+        <p class="dayLeft">6 jours restants</p>
+        <p class="title">Nouvel an chez Anne</p>
+        <div class="box">
+          <div class="borderTop"></div>
+          <div class="lineBox">
+              <img src="assets/imgs/logo-soonly.svg" alt="Image">
+              <p class="username">Nanou</p>
+          </div>
+          <div class="lineBox">
+              <img src="assets/imgs/logo-soonly.svg" alt="Image">
+              <p class="caseToDiscover">1 case à découvrir</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </ion-content>
 </div>
