@@ -1,16 +1,14 @@
 <div class="mainContent">
   <div class="header">
-    <div class="back">
-      <ion-icon (tap)="showMyCalendarsReceived()" name="arrow-back"></ion-icon>
-    </div>
     <h1>{{ calendarName }}</h1>
+    <h2>6 jours restants</h2>
   </div>
 
   <ion-content padding>
-    Calendrier reçus de Name
+    Affichage des différents cadeaux
   </ion-content>
 </div>
 
-<div class="tabBar hide-on-keyboard-open">
+<div (tap)="showMyCalendarsReceived()" class="tabBar hide-on-keyboard-open">
   <p>Hey</p>
 </div>
