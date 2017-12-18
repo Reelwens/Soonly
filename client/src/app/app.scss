@@ -89,6 +89,41 @@ time, mark, audio, video {
       }
     }
 
+    .subHeader {
+      height: 80px;
+      border-bottom: 2px solid #d4d9e8;
+      display: flex;
+      justify-content: center;
+
+      .title {
+        position: relative;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 78px;
+        text-transform: uppercase;
+        height: 100%;
+        color: #a7b6d1;
+        padding: 0 23px;
+
+        .selectMark {
+          position: absolute;
+          bottom: -2px;
+          width: calc(100% - 46px);
+          height: 4px;
+          border-top-left-radius: 100px;
+          border-top-right-radius: 100px;
+        }
+
+        &.active {
+          color: #396fdd;
+
+          .selectMark {
+            background-color: #396fdd;
+          }
+        }
+      }
+    }
+
     ion-content {
       background-color: inherit;
       height: calc(100vh - 59px - 50px); // Remove header & tabBar
