@@ -1,3 +1,24 @@
+// Reset CSS
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    vertical-align:baseline;
+}
+
+
 // http://ionicframework.com/docs/theming/
 
 
@@ -14,3 +35,90 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.ion-page {
+
+  @media (min-width: 567px) {
+    flex-direction: row;
+  }
+
+  .mainContent {
+    background-color: white;
+    width: 100vw;
+    height: calc(100vh - 50px);
+
+    @media (min-width: 567px) {
+      width: calc(100vw - 119px);
+      height: 100vh;
+      margin-left: 119px;
+    }
+
+    .header {
+      transition: all 0.1s;
+      height: 120px;
+      padding: 0 25px;
+      border-bottom: 1px solid #d4d9e8;
+
+      .back {
+        display: inline-block;
+
+        &:active {
+          background: #e4d3df;
+        }
+
+        .ion-md-arrow-back {
+          font-size: 1.5em;
+          padding: 25px;
+        }
+      }
+
+      h1 {
+        display: inline-block;
+        font-size: 36px;
+        font-weight: 400;
+        color: #203c6c;
+        margin-top: 26px;
+        letter-spacing: 0.1px;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: 400;
+        color: #a7b6d1;
+        margin-top: 5px;
+      }
+    }
+
+    ion-content {
+      background-color: inherit;
+      height: calc(100vh - 59px - 50px); // Remove header & tabBar
+
+      @media (min-width: 567px) {
+        height: calc(100vh - 59px);
+      }
+
+      .scroll-content {
+        padding: 25px;
+
+        ion-item {
+          background-color: inherit;
+        }
+      }
+    }
+  }
+
+  .tabBar {
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: #203c6c;
+    color: white;
+
+    @media (min-width: 567px) {
+      width: 119px;
+      height: 100vh;
+    }
+  }
+}

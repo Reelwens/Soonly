@@ -7,14 +7,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 // Pages
-import { HomePage } from '../pages/home/home';
-import { DetailsPage } from '../pages/details/details';
+import { MyCalendarsReceivedPage } from '../pages/myCalendarsReceived/myCalendarsReceived';
+import { CalendarPage } from '../pages/calendar/calendar';
+
+// API
+import { Service } from '../services/soonly.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    DetailsPage
+    MyCalendarsReceivedPage,
+    CalendarPage
   ],
   imports: [
     BrowserModule,
@@ -23,10 +26,11 @@ import { DetailsPage } from '../pages/details/details';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    DetailsPage
+    MyCalendarsReceivedPage,
+    CalendarPage
   ],
   providers: [
+    Service,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
