@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="ApiBundle\Repository\AttachementRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="attachementType", type="string")
- * @ORM\DiscriminatorMap({"message" = "MessageAttachement"})
+ * @ORM\DiscriminatorMap({"message" = "MessageAttachement", "image" = "ImageAttachement"})
  */
 abstract class Attachement
 {
