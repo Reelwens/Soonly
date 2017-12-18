@@ -115,10 +115,10 @@ time, mark, audio, video {
         }
 
         &.active {
-          color: #396fdd;
+          color: #ef8fb0;
 
           .selectMark {
-            background-color: #396fdd;
+            background-color: #ef8fb0;
           }
         }
       }
@@ -143,13 +143,67 @@ time, mark, audio, video {
   }
 
   .tabBar {
+    position: relative;
     z-index: 10;
     position: absolute;
     bottom: 0;
     width: 100vw;
     height: 50px;
-    background-color: #203c6c;
+    background-color: #08348c;
     color: white;
+
+    .logoPlacement {
+      display: flex;
+      position: absolute;
+      width: 100%;
+      padding: 19px 0;
+
+      img {
+        width: 58px;
+        margin: 0 auto;
+      }
+    }
+
+    .menu {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+
+      .menuItem {
+        position: relative;
+        padding: 20px 0;
+
+        .borderLeft {
+          position: absolute;
+          width: 4px;
+          height: calc(100% - 40px);
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+        }
+
+        img {
+          width: 24px;
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 500;
+          color: #a7b6d1;
+        }
+
+        &.active {
+          .borderLeft {
+            background-color: #ef8fb0;
+          }
+
+          p {
+            color: white;
+          }
+        }
+      }
+    }
 
     @media (min-width: 567px) {
       width: 119px;
