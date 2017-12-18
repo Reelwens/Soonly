@@ -126,10 +126,10 @@ time, mark, audio, video {
 
     ion-content {
       background-color: inherit;
-      height: calc(100vh - 59px - 50px); // Remove header & tabBar
+      height: calc(100vh - 200px - 50px); // Remove header & tabBar
 
       @media (min-width: 567px) {
-        height: calc(100vh - 59px);
+        height: calc(100vh - 200px);
       }
 
       .scroll-content {
