@@ -13,6 +13,7 @@ import { CalendarPage } from '../pages/calendar/calendar';
 
 // API
 import { Service } from '../services/soonly.service';
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { Service } from '../services/soonly.service';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
