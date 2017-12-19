@@ -55,6 +55,21 @@ time, mark, audio, video {
       padding: 16px;
     }
 
+    img.back {
+      position: absolute;
+      padding: 16px;
+      width: 56px;
+      height: 56px;
+    }
+
+    p {
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      margin: 0 auto;
+      line-height: 56px;
+    }
+
     @media (min-width: 567px) {
       display: none;
     }
@@ -192,7 +207,7 @@ time, mark, audio, video {
       }
 
       .scroll-content {
-        padding: 25px 16px;
+        padding: 25px 16px!important;
 
         @media (min-width: 567px) {
           padding: 25px;

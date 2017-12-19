@@ -122,6 +122,7 @@ page-myCalendarsReceived {
 
   .addButton {
     position: fixed;
+    display: flex;
     background-color: #9d77e0;
     padding: 22px;
     bottom: 94px;
@@ -131,6 +132,7 @@ page-myCalendarsReceived {
 
     img {
       width: 20px;
+      height: 20px;
     }
   }
 }
