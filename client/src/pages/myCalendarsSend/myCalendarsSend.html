@@ -1,20 +1,19 @@
 <div class="topHeader">
-  <img src="assets/imgs/logo-soonly.svg" alt="Image">
+  <img src="assets/imgs/logo-soonly.svg" alt="Image" class="logo">
+  <img src="assets/imgs/settings.svg" alt="Image" class="settings">
 </div>
 
 <div class="mainContent">
-  <div class="header">
-    <h1>Mes calendriers</h1>
-    <h2>Dernier créé le 16 Décembre 2017</h2>
-  </div>
 
   <div class="subHeader">
-    <div class="title" (tap)="showMyCalendarsReceived()">
-      <p>Calendriers reçus</p>
+    <div class="user active">
+      <img src="assets/imgs/person.svg" alt="Image">
+      <p>Louis</p>
       <div class="selectMark"></div>
     </div>
-    <div class="title active">
-      <p>Calendriers envoyés</p>
+    <div class="user">
+      <img src="assets/imgs/person.svg" alt="Image">
+      <p>Papy Jacky</p>
       <div class="selectMark"></div>
     </div>
   </div>
@@ -66,22 +65,22 @@
   </div>
 
   <div class="menu">
+    <div class="menuItem" (tap)="showMyCalendarsReceived()">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/event.svg" alt="Image">
+      <p>Reçus</p>
+    </div>
+
     <div class="menuItem active">
       <div class="borderLeft"></div>
       <img src="assets/imgs/event-active.svg" alt="Image">
-      <p>Calendriers</p>
+      <p>Envoyés</p>
     </div>
 
     <div class="menuItem">
       <div class="borderLeft"></div>
-      <img src="assets/imgs/photo_library.svg" alt="Image">
+      <img src="assets/imgs/event.svg" alt="Image">
       <p>Souvenirs</p>
-    </div>
-
-    <div class="menuItem">
-      <div class="borderLeft"></div>
-      <img src="assets/imgs/profil.svg" alt="Image">
-      <p>Profil</p>
     </div>
   </div>
 </div>

@@ -40,13 +40,19 @@ time, mark, audio, video {
 
   .topHeader {
     width: 100%;
-    height: 48px;
-    background-color: #08348c;
+    height: 56px;
+    background-color: #6c588f;
     display: flex;
 
-    img {
-      width: 58px;
+    img.logo {
+      width: 70px;
       margin: 0 auto;
+    }
+
+    img.settings {
+      position: absolute;
+      right: 0;
+      padding: 16px;
     }
 
     @media (min-width: 567px) {
@@ -122,8 +128,8 @@ time, mark, audio, video {
     }
 
     .subHeader {
-      height: 55px;
-      border-bottom: 2px solid #d4d9e8;
+      height: 78px;
+      border-bottom: 1px solid #d4d9e8;
       display: flex;
       justify-content: center;
 
@@ -131,35 +137,47 @@ time, mark, audio, video {
         height: 80px;
       }
 
-      .title {
+      .user {
         position: relative;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 55px;
-        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         height: 100%;
-        color: #a7b6d1;
         padding: 0 23px;
+        text-align: center;
 
         @media (min-width: 567px) {
           font-size: 16px;
-          line-height: 78px;
+        }
+
+        img {
+          margin-top: 14px;
+          width: 36px;
+          height: 36px;
+          border-radius: 100px;
+          object-fit: cover;
+        }
+
+        p {
+          margin-top: 1px;
+          font-size: 14px;
+          font-weight: 500;
+          color: #203c6c;
         }
 
         .selectMark {
           position: absolute;
           bottom: -2px;
-          width: calc(100% - 46px);
-          height: 4px;
+          width: calc(100% - 23px);
+          height: 5px;
           border-top-left-radius: 100px;
           border-top-right-radius: 100px;
         }
 
         &.active {
-          color: #ef8fb0;
 
           .selectMark {
-            background-color: #ef8fb0;
+            background-color: #9d77e0;
           }
         }
       }
@@ -167,7 +185,7 @@ time, mark, audio, video {
 
     ion-content {
       background-color: inherit;
-      height: calc(100vh - 48px - 80px - 55px - 61px); // Remove header & tabBar
+      height: calc(100vh - 56px - 78px - 61px); // Remove header & tabBar
 
       @media (min-width: 567px) {
         height: calc(100vh - 200px);
@@ -193,7 +211,7 @@ time, mark, audio, video {
     bottom: 0;
     width: 100vw;
     height: 61px;
-    background-color: #08348c;
+    background-color: white;
     color: white;
 
     .logoPlacement {
@@ -218,6 +236,7 @@ time, mark, audio, video {
       flex-direction: row;
       text-align: center;
       justify-content:center;
+      box-shadow: 0 -8px 15px 0 rgba(#000000, 0.05);
 
       @media (min-width: 567px) {
         flex-direction: column;
@@ -274,11 +293,11 @@ time, mark, audio, video {
 
         &.active {
           .borderLeft {
-            background-color: #ef8fb0;
+            background-color: #9d77e0;
           }
 
           p {
-            color: white;
+            color: #9d77e0;
           }
         }
       }
