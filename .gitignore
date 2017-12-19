@@ -12,3 +12,5 @@ server/time/var/cache/prod/
 server/time/var/sessions/dev/
 
 *.php~
+
+server/time/web/uploads/videos/
