@@ -10,6 +10,17 @@ page-myCalendarsReceived, page-myCalendarsSend {
     }
   }
 
+  .date {
+    color: #A4B2CD;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 8px 8px 8px;
+
+    @media (min-width: 567px) {
+      text-align: center;
+    }
+  }
+
   .calendarGroup {
     display: flex;
     flex-wrap: wrap;
