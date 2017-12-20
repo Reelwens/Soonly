@@ -1,4 +1,4 @@
-page-myCalendarsReceived {
+page-myCalendarsReceived, page-myCalendarsSend {
   &.ion-page .mainContent ion-content .scroll-content {
     background-color: #f6f9fe;
     padding: 25px 8px!important;
@@ -35,6 +35,21 @@ page-myCalendarsReceived {
           border-bottom: dashed 2px #a7b6d1;
           box-shadow: inset 0px 2px 5px 0px rgba(167,182,209,0.4);
         }
+      }
+
+      &.add .content .info {
+        display: block;
+        color: #203c6c;
+      }
+
+      &.open .content .info {
+        display: block;
+        color: #ce7070;
+      }
+
+      &.fill .content .info {
+        display: block;
+        color: #70cea4;
       }
 
       .content {
