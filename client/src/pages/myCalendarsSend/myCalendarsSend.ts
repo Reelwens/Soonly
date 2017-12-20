@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 // API
 //import { Service } from '../../services/soonly.service';
@@ -15,8 +16,13 @@ import { CreateBoxPage } from '../createBox/createBox';
   templateUrl: 'myCalendarsSend.html'
 })
 export class MyCalendarsSendPage {
-
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  private fullPath : string = 'assets/imgs/mic.svg';
+  private base64 : string = '';
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
+    if(navParams.get('img') != null && navParams.get('base64') != null) {
+        this.fullPath = navParams.get('img');
+        this.base64 = navParams.get('base64');
+    }
   }
 
   // Send data to calendar page

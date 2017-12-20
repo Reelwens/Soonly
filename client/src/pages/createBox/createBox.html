@@ -7,7 +7,7 @@
   <ion-content>
     <p class="question">Que souhaitez-vous envoyer à Jean ?</p>
 
-    <div class="sendElements">
+    <div class="sendElements" (tap)=openAudio()>
       <div class="sendElement half">
         <img src="assets/imgs/mic.svg" alt="Image">
         <p>Vocal</p>
@@ -18,7 +18,7 @@
         <p>Message</p>
       </div>
 
-      <div class="sendElement">
+      <div class="sendElement" (tap)=openCamera()>
         <img src="assets/imgs/camera.svg" alt="Image">
         <p>Photo/Vidéo</p>
       </div>

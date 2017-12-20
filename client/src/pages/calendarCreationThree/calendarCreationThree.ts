@@ -6,8 +6,6 @@ import { NavController, AlertController } from 'ionic-angular';
 
 // Pages
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
-import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
-import { CalendarCreationTwoPage } from '../calendarCreationTwo/calendarCreationTwo';
 
 @Component({
   selector: 'page-calendarCreationThree',
