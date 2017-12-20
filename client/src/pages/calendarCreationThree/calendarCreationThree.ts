@@ -18,9 +18,14 @@ export class CalendarCreationThreePage {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
   }
 
-  // Move to myCalendarReceived page
+  // Go back
   showBack(name: string) : void {
     this.navCtrl.pop();
+  }
+
+  // Move to myCalendarSend page
+  showMyCalendarsSend(name: string) : void {
+    this.navCtrl.push(MyCalendarsSendPage);
   }
 
 }
