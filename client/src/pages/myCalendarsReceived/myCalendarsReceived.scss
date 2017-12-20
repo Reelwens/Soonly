@@ -21,7 +21,6 @@ page-myCalendarsReceived, page-myCalendarsSend {
       width: calc(50% - 16px);
       padding-top: calc(50% - 16px);
       margin: 8px;
-      border-radius: 5px;
       background-size: 100% 100%;
       border: 1px solid #C6E0FD;
 
@@ -227,12 +226,12 @@ page-myCalendarsReceived, page-myCalendarsSend {
 page-myCalendarsReceived .calendarGroup .case {
 
   &.open {
-    border: dashed 1px #a7b6d1;
+    border: dashed 1px #C6E0FD;
 
     .mask {
-      border-left: dashed 1px #a7b6d1;
-      border-top: dashed 1px #a7b6d1;
-      border-bottom: dashed 1px #a7b6d1;
+      border-left: dashed 1px #C6E0FD;
+      border-top: dashed 1px #C6E0FD;
+      border-bottom: dashed 1px #C6E0FD;
     }
   }
 }

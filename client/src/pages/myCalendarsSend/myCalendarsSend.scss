@@ -5,16 +5,16 @@ page-myCalendarsSend .calendarGroup .case {
   }
 
   &.open {
-    border: dashed 1px #a7b6d1;
+    border: dashed 1px #C6E0FD;
 
     .content .info {
       display: block;
     }
 
     .mask {
-      border-left: dashed 1px #a7b6d1;
-      border-top: dashed 1px #a7b6d1;
-      border-bottom: dashed 1px #a7b6d1;
+      border-left: dashed 1px #C6E0FD;
+      border-top: dashed 1px #C6E0FD;
+      border-bottom: dashed 1px #C6E0FD;
     }
   }
 
@@ -25,11 +25,11 @@ page-myCalendarsSend .calendarGroup .case {
 
   &.addBright {
     z-index: 20;
-    box-shadow: 0 2px 15px 0 #a7b6d1;
+    box-shadow: 0 2px 15px 0 #C6E0FD;
     filter: none;
 
     .mask {
-      box-shadow: inset 0 2px 15px 0 #a7b6d1;
+      box-shadow: inset 0 2px 15px 0 #C6E0FD;
       filter: brightness(0.4);
     }
 
