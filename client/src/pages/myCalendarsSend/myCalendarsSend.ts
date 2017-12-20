@@ -35,7 +35,7 @@ export class MyCalendarsSendPage implements OnInit {
 
   // Send data to calendar page
   showCalendar(name: string) : void {
-    this.navCtrl.push(CalendarPage, { 
+    this.navCtrl.push(CalendarPage, {
       calendarName: name
     });
   }

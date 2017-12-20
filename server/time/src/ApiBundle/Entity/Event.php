@@ -50,6 +50,14 @@ class Event
 	 * @ORM\JoinColumn(name="attachement_id", referencedColumnName="id_attachement")
 	 */
 	private $attachement;
+	
+	/**
+	 * @var boolean
+	 *
+	 * @ORM\Column(name="viewed", type="boolean")
+	 *
+	 */
+	private $viewed;
 
 
     /**
@@ -158,5 +166,29 @@ class Event
     public function getAttachement()
     {
         return $this->attachement;
+    }
+
+    /**
+     * Set viewed
+     *
+     * @param boolean $viewed
+     *
+     * @return Event
+     */
+    public function setViewed($viewed)
+    {
+        $this->viewed = $viewed;
+    
+        return $this;
+    }
+
+    /**
+     * Get viewed
+     *
+     * @return boolean
+     */
+    public function getViewed()
+    {
+        return $this->viewed;
     }
 }
