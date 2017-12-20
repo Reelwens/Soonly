@@ -68,15 +68,26 @@ time, mark, audio, video {
       font-size: 16px;
       margin: 0 auto;
       line-height: 56px;
+
+      @media (min-width: 567px) {
+        line-height: 80px;
+        font-size: 18px;
+      }
     }
 
     @media (min-width: 567px) {
-      display: none;
-    }
-  }
+      height: 80px;
 
-  @media (min-width: 567px) {
-    flex-direction: row;
+      img.settings {
+        padding: 28px;
+      }
+
+      img.back {
+        padding: 28px;
+        height: 80px;
+        width: 80px;
+      }
+    }
   }
 
   .mainContent {
@@ -85,9 +96,7 @@ time, mark, audio, video {
     height: calc(100vh - 50px - 48px);
 
     @media (min-width: 567px) {
-      width: calc(100vw - 119px);
-      height: 100vh;
-      margin-left: 119px;
+      height: calc(100vh - 80px - 75px);
     }
 
     .header {
@@ -203,14 +212,14 @@ time, mark, audio, video {
       height: calc(100vh - 56px - 78px - 61px); // Remove header & tabBar
 
       @media (min-width: 567px) {
-        height: calc(100vh - 200px);
+        height: calc(100vh - 80px - 80px - 75px);
       }
 
       .scroll-content {
         padding: 25px 16px!important;
 
         @media (min-width: 567px) {
-          padding: 25px;
+          padding: 25px 50px;
         }
 
         ion-item {
@@ -228,6 +237,10 @@ time, mark, audio, video {
     height: 61px;
     background-color: white;
     color: white;
+
+    @media (min-width: 567px) {
+      height: 75px;
+    }
 
     .logoPlacement {
       display: none;
@@ -254,8 +267,7 @@ time, mark, audio, video {
       box-shadow: 0 -8px 15px 0 rgba(#000000, 0.05);
 
       @media (min-width: 567px) {
-        flex-direction: column;
-        justify-content: center;
+
       }
 
       .menuItem {
@@ -264,8 +276,7 @@ time, mark, audio, video {
         padding: 0 15px;
 
         @media (min-width: 567px) {
-          padding: 20px 0;
-          width: auto;
+
         }
 
         .borderLeft {
@@ -278,22 +289,13 @@ time, mark, audio, video {
           border-top-right-radius: 6px;
 
           @media (min-width: 567px) {
-            width: 4px;
-            height: calc(100% - 40px);
-            bottom: auto;
-            border-top-right-radius: 6px;
-            border-bottom-right-radius: 6px;
-            margin-left: 0px;
+
           }
         }
 
         img {
           width: 24px;
-          margin-top: 8px;
-
-          @media (min-width: 567px) {
-            margin-top: 0;
-          }
+          margin-top: 14px;
         }
 
         p {
@@ -316,11 +318,6 @@ time, mark, audio, video {
           }
         }
       }
-    }
-
-    @media (min-width: 567px) {
-      width: 119px;
-      height: 100vh;
     }
   }
 }

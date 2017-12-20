@@ -17,6 +17,10 @@ page-calendarcreationone.ion-page, page-calendarcreationtwo.ion-page, page-calen
       color: #a7b6d1;
       font-size: 20px;
       font-weight: 500;
+
+      @media (min-width: 567px) {
+        font-size: 25px;
+      }
     }
 
     .phrase {
@@ -25,6 +29,10 @@ page-calendarcreationone.ion-page, page-calendarcreationtwo.ion-page, page-calen
       width: 90%;
       color: #203c6c;
       font-size: 16px;
+
+      @media (min-width: 567px) {
+        font-size: 18px;
+      }
     }
 
     .inputBox {
