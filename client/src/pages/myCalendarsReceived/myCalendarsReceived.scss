@@ -1,4 +1,6 @@
 page-myCalendarsReceived, page-myCalendarsSend {
+  position: relative;
+
   &.ion-page .mainContent ion-content .scroll-content {
     background-color: #f6f9fe;
     padding: 25px 8px!important;
@@ -50,6 +52,25 @@ page-myCalendarsReceived, page-myCalendarsSend {
       &.fill .content .info {
         display: block;
         color: #70cea4;
+      }
+
+      &.addBright {
+        z-index: 20;
+        box-shadow: 0 2px 15px 0 #a7b6d1;
+        filter: none;
+
+        .mask {
+          box-shadow: inset 0 2px 15px 0 #a7b6d1;
+          filter: brightness(0.4);
+        }
+
+        .mask2 {
+          filter: brightness(0.4);
+        }
+
+        .content .info {
+          display: block;
+        }
       }
 
       .content {
@@ -123,5 +144,56 @@ page-myCalendarsReceived, page-myCalendarsSend {
       width: 20px;
       height: 20px;
     }
+  }
+}
+
+.dark {
+  .topHeader, .subHeader, .case, .addButton, .menu {
+    filter: brightness(0.4);
+    background-color: rgba(#000000, 0.6);
+  }
+
+  .scroll-content {
+    background-color: rgba(#000000, 0.6)!important;
+  }
+
+  .modalMessage {
+    display: flex;
+  }
+}
+
+.modalMessage {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  z-index: 20;
+  background-color: white;
+  text-align: center;
+  flex-direction: column;
+  padding: 19px 25px;
+  border-radius: 6px;
+  width: 90%;
+  left: 50%;
+  box-shadow: 0 2px 15px 0 rgba(167, 182, 209, 0.4);
+  transform: translate(-50%, 0);
+
+  img {
+    width: 36px;
+    margin: 0 auto;
+  }
+
+  h3 {
+    margin-top: 10px;
+    color: #a7b6d1;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  p {
+    margin-top: 14px;
+    color: #203c6c;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 15px;
   }
 }
