@@ -1,0 +1,104 @@
+page-calendarcreationone.ion-page, page-calendarcreationtwo.ion-page, page-calendarcreationthree.ion-page {
+  .content {
+    height: 100%;
+    text-align: center;
+  }
+
+  .mainContent {
+    height: calc(100vh - 56px);
+
+    img.manHappy {
+      width: 180px;
+      margin: 8px 0;
+    }
+
+    .title {
+      margin-top: 6vh;
+      color: #a7b6d1;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .phrase {
+      margin: 0 auto;
+      margin-top: 12px;
+      width: 90%;
+      color: #203c6c;
+      font-size: 16px;
+    }
+
+    .inputBox {
+      display: flex;
+      margin-top: 9vh;
+
+      .inputGroup {
+        margin: 0 8px;
+      }
+    }
+
+    .inputGroup {
+      border-bottom: 2px solid #9B76DA;
+      display: flex;
+      height: 45px;
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 9vh;
+
+      img {
+        width: 20px;
+      }
+
+      ion-input {
+        border: none;
+        height: 43px;
+        width: 100%;
+        font-size: 20px;
+        color: #203c6c;
+
+        input {
+          transform: none!important;
+        }
+
+        &::placeholder {
+          color: #a7b6d1;
+        }
+      }
+    }
+
+    .button {
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 36px;
+      background-color: #a7b6d1;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      box-shadow: 0 2px 15px 0 rgba(157, 119, 224, 0.4);
+      padding: 18px 0;
+      text-transform: uppercase;
+      transition: all .3s;
+
+      &.active {
+        background-color: #9d77e0;
+      }
+    }
+
+    .steps {
+      margin-top: 57px;
+      display: flex;
+      justify-content: center;
+
+      .step {
+        width: 12px;
+        height: 12px;
+        border-radius: 100px;
+        border: 1px solid #9d77e0;
+        margin: 0 10px;
+
+        &.active {
+          background-color: #9d77e0;
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { NavController, AlertController } from 'ionic-angular';
 // Pages
 import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
+import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 
 @Component({
   selector: 'page-myCalendarsReceived',
@@ -28,6 +29,12 @@ export class MyCalendarsReceivedPage {
   showMyCalendarsSend(name: string) : void {
     this.navCtrl.push(MyCalendarsSendPage);
   }
+
+  // Move to calendarCreationOne page
+  showCalendarCreationOne(name: string) : void {
+    this.navCtrl.push(CalendarCreationOnePage);
+  }
+
 
 
   // Print alert

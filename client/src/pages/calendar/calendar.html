@@ -1,3 +1,8 @@
+<div class="topHeader">
+  <img src="assets/imgs/logo-soonly.svg" alt="Image" class="logo" (tap)="showMyCalendarsReceived()">
+  <img src="assets/imgs/settings.svg" alt="Image" class="settings">
+</div>
+
 <div class="mainContent">
   <div class="header">
     <h1>{{ calendarName }}</h1>
@@ -9,6 +14,28 @@
   </ion-content>
 </div>
 
-<div (tap)="showMyCalendarsReceived()" class="tabBar hide-on-keyboard-open">
-  <p>Hey</p>
+<div class="tabBar hide-on-keyboard-open">
+  <div class="logoPlacement">
+    <img src="assets/imgs/logo-soonly.svg" alt="Image">
+  </div>
+
+  <div class="menu">
+    <div class="menuItem active" (tap)="showMyCalendarsReceived()">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/event-active.svg" alt="Image">
+      <p>Calendriers</p>
+    </div>
+
+    <div class="menuItem">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/photo_library.svg" alt="Image">
+      <p>Souvenirs</p>
+    </div>
+
+    <div class="menuItem">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/profil.svg" alt="Image">
+      <p>Profil</p>
+    </div>
+  </div>
 </div>

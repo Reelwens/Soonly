@@ -1,59 +1,120 @@
+<div class="topHeader">
+  <img src="assets/imgs/logo-soonly.svg" alt="Image" class="logo">
+  <img src="assets/imgs/settings.svg" alt="Image" class="settings">
+</div>
+
 <div class="mainContent">
-  <div class="header">
-    <h1>Mes calendriers</h1>
-    <h2>Dernier créé le 16 Décembre 2017</h2>
-  </div>
 
   <div class="subHeader">
-    <div class="title" (tap)="showMyCalendarsReceived()">
-      <p>Calendriers reçus</p>
+    <div class="user active">
+      <img src="assets/imgs/person.svg" alt="Image">
+      <p>Louis</p>
       <div class="selectMark"></div>
     </div>
-    <div class="title active">
-      <p>Calendriers envoyés</p>
+    <div class="user">
+      <img src="assets/imgs/person.svg" alt="Image">
+      <p>Papy Jacky</p>
       <div class="selectMark"></div>
     </div>
   </div>
 
   <ion-content>
     <div class="calendarGroup">
-
-      <div (tap)="showCalendar('Nouvel an chez Anne')" class="calendarBox">
-        <p class="dayLeft">6 jours restants</p>
-        <p class="title">Nouvel an 2018 🎉</p>
-        <div class="box">
-          <div class="borderTop"></div>
-          <div class="lineBox">
-              <img src="assets/imgs/logo-soonly.svg" alt="Image">
-              <p class="username">Nanou</p>
-          </div>
-          <div class="lineBox">
-              <img src="assets/imgs/logo-soonly.svg" alt="Image">
-              <p class="caseToDiscover">1 case à découvrir</p>
-          </div>
+      <div class="case open"> <!-- .addBright at the creation of the calendar, .dark in 'page-mycalendarssend' to create darker -->
+        <div class="content">
+          <p class="dayLeft">J-6</p>
+          <p class="dayNumber">3</p>
+          <p class="info">Case ouverte</p>
         </div>
+        <div class="mask"></div>
+        <div class="mask2"></div>
       </div>
 
-      <div (tap)="showCalendar('Diner à la maison')" class="calendarBox">
-        <p class="dayLeft">3 jours restants</p>
-        <p class="title">Diner de famille !</p>
-        <div class="box">
-          <div class="borderTop"></div>
-          <div class="lineBox">
-              <img src="assets/imgs/logo-soonly.svg" alt="Image">
-              <p class="username">Papy Jacky</p>
-          </div>
-          <div class="lineBox">
-              <img src="assets/imgs/logo-soonly.svg" alt="Image">
-              <p class="caseToDiscover">0 case à découvrir</p>
-          </div>
+      <div class="case fill">
+        <div class="content">
+          <p class="dayLeft">J-5</p>
+          <p class="dayNumber">4</p>
+          <p class="info">Case remplie</p>
         </div>
+        <div class="mask"></div>
+        <div class="mask2"></div>
       </div>
 
+      <div class="case add">
+        <div class="content">
+          <p class="dayLeft">J-4</p>
+          <p class="dayNumber">5</p>
+          <p class="info">Cliquez pour ajouter</p>
+        </div>
+        <div class="mask"></div>
+        <div class="mask2"></div>
+      </div>
+
+      <div class="case fill">
+        <div class="content">
+          <p class="dayLeft">J-3</p>
+          <p class="dayNumber">6</p>
+          <p class="info">Case remplie</p>
+        </div>
+        <div class="mask"></div>
+        <div class="mask2"></div>
+      </div>
+
+      <div class="case">
+        <div class="content">
+          <p class="dayLeft">J-2</p>
+          <p class="dayNumber">7</p>
+          <p class="info">Cliquez pour découvrir</p>
+        </div>
+        <div class="mask"></div>
+        <div class="mask2"></div>
+      </div>
+
+      <div class="case">
+        <div class="content">
+          <p class="dayLeft">J-1</p>
+          <p class="dayNumber">8</p>
+          <p class="info">Cliquez pour découvrir</p>
+        </div>
+        <div class="mask"></div>
+        <div class="mask2"></div>
+      </div>
+    </div>
+
+    <div class="addButton" (tap)="showCalendarCreationOne()">
+      <img src="assets/imgs/add.svg" alt="Image">
     </div>
   </ion-content>
 </div>
 
 <div class="tabBar hide-on-keyboard-open">
-  <p>Hey</p>
+  <div class="logoPlacement">
+    <img src="assets/imgs/logo-soonly.svg" alt="Image">
+  </div>
+
+  <div class="menu">
+    <div class="menuItem" (tap)="showMyCalendarsReceived()">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/event.svg" alt="Image">
+      <p>Reçus</p>
+    </div>
+
+    <div class="menuItem active">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/send-active.svg" alt="Image">
+      <p>Envoyés</p>
+    </div>
+
+    <div class="menuItem">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/photo_library.svg" alt="Image">
+      <p>Souvenirs</p>
+    </div>
+  </div>
+</div>
+
+<div class="modalMessage">
+  <img src="assets/imgs/touch.svg" alt="Image">
+  <h3>Félicitations !</h3>
+  <p>Votre calendrier est créé, cliquez sur la case pour créer votre première surprise…</p>
 </div>

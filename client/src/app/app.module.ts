@@ -10,6 +10,9 @@ import { MyApp } from './app.component';
 import { MyCalendarsReceivedPage } from '../pages/myCalendarsReceived/myCalendarsReceived';
 import { MyCalendarsSendPage } from '../pages/myCalendarsSend/myCalendarsSend';
 import { CalendarPage } from '../pages/calendar/calendar';
+import { CalendarCreationOnePage } from '../pages/calendarCreationOne/calendarCreationOne';
+import { CalendarCreationTwoPage } from '../pages/calendarCreationTwo/calendarCreationTwo';
+import { CalendarCreationThreePage } from '../pages/calendarCreationThree/calendarCreationThree';
 
 // API
 import { Service } from '../services/soonly.service';
@@ -20,7 +23,10 @@ import {IonicStorageModule} from "@ionic/storage";
     MyApp,
     MyCalendarsReceivedPage,
     MyCalendarsSendPage,
-    CalendarPage
+    CalendarPage,
+    CalendarCreationOnePage,
+    CalendarCreationTwoPage,
+    CalendarCreationThreePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,10 @@ import {IonicStorageModule} from "@ionic/storage";
     MyApp,
     MyCalendarsReceivedPage,
     MyCalendarsSendPage,
-    CalendarPage
+    CalendarPage,
+    CalendarCreationOnePage,
+    CalendarCreationTwoPage,
+    CalendarCreationThreePage
   ],
   providers: [
     Service,

@@ -1,0 +1,25 @@
+<div class="topHeader">
+  <img src="assets/imgs/close.svg" alt="Image" class="back" (tap)=showBack()>
+  <p>Création calendrier</p>
+</div>
+
+<div class="mainContent">
+  <ion-content>
+    <img src="assets/imgs/illu1.svg" alt="Image" class="manHappy">
+    <p class="title">À qui pensez-vous ?</p>
+    <p class="phrase">Saisissez le nom d’un proche à qui vous souhaitez préparer une surprise… </p>
+
+    <div class="inputGroup">
+      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+      <ion-input type="text"placeholder="Prénom" [(ngModel)]="username"></ion-input>
+    </div>
+
+    <div class="button active" (tap)=showCalendarCreationTwo()>Suivant</div>
+
+    <div class="steps">
+      <div class="step active"></div>
+      <div class="step"></div>
+      <div class="step"></div>
+    </div>
+  </ion-content>
+</div>
