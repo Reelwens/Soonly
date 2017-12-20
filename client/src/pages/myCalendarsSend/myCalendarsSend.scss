@@ -45,7 +45,7 @@ page-myCalendarsSend .calendarGroup .case {
 
 .noBoxContent {
   display: none;
-  top: 50%;
+  top: calc(50% - 10px);
   position: absolute;
   transform: translateY(-50%);
   flex-direction: column;
@@ -64,6 +64,10 @@ page-myCalendarsSend .calendarGroup .case {
   p {
     color: #203c6c;
     font-size: 16px;
+  }
+
+  img {
+    width: 60%;
   }
 }
 
