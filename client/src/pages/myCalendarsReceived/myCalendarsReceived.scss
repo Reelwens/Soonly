@@ -22,10 +22,68 @@ page-myCalendarsReceived, page-myCalendarsSend {
       padding-top: calc(50% - 16px);
       margin: 8px;
       border-radius: 5px;
+      background-size: 100% 100%;
+
+      &:nth-child(14n - 13) {
+        background-image: url('../assets/imgs/cases/Case-Type1.png');
+      }
+
+      &:nth-child(14n - 12) {
+        background-image: url('../assets/imgs/cases/Case-Type2.png');
+      }
+
+      &:nth-child(14n - 11) {
+        background-image: url('../assets/imgs/cases/Case-Type3.png');
+      }
+
+      &:nth-child(14n - 10) {
+        background-image: url('../assets/imgs/cases/Case-Type4.png');
+      }
+
+      &:nth-child(14n - 9) {
+        background-image: url('../assets/imgs/cases/Case-Type5.png');
+      }
+
+      &:nth-child(14n - 8) {
+        background-image: url('../assets/imgs/cases/Case-Type6.png');
+      }
+
+      &:nth-child(14n - 7) {
+        background-image: url('../assets/imgs/cases/Case-Type7.png');
+      }
+
+      &:nth-child(14n - 6) {
+        background-image: url('../assets/imgs/cases/Case-Type8.png');
+      }
+
+      &:nth-child(14n - 5) {
+        background-image: url('../assets/imgs/cases/Case-Type9.png');
+      }
+
+      &:nth-child(14n - 4) {
+        background-image: url('../assets/imgs/cases/Case-Type10.png');
+      }
+
+      &:nth-child(14n - 3) {
+        background-image: url('../assets/imgs/cases/Case-Type11.png');
+      }
+
+      &:nth-child(14n - 2) {
+        background-image: url('../assets/imgs/cases/Case-Type12.png');
+      }
+
+      &:nth-child(14n - 1) {
+        background-image: url('../assets/imgs/cases/Case-Type13.png');
+      }
+
+      &:nth-child(14n) {
+        background-image: url('../assets/imgs/cases/Case-Type14.png');
+      }
 
       &.discover {
         border: dashed 2px #a7b6d1;
         box-shadow: 0 2px 15px 0 rgba(167, 182, 209, 0.4);
+        background-image: url('../assets/imgs/cases/Case-TypeAjd.png');
 
         .content .info {
           display: block;
