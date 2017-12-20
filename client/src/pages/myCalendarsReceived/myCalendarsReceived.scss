@@ -1,12 +1,42 @@
 page-myCalendarsReceived {
+  &.ion-page .mainContent ion-content .scroll-content {
+    background-color: #f6f9fe;
+    padding: 25px 8px!important;
+  }
 
   .calendarGroup {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    width: calc(100vw - 16px);
 
     @media (min-width: 567px) {
       justify-content: space-around;
+    }
+
+    .case {
+      position: relative;
+      background-color: white;
+      width: calc(50% - 16px);
+      padding-top: calc(50% - 16px);
+      margin: 8px;
+      border-radius: 5px;
+
+      .content {
+        position: absolute;
+        top: 0;
+      }
+
+      .mask {
+        position: absolute;
+        background-color: #f6f9fe;
+        height: 50px;
+        width: 25px;
+        border-bottom-left-radius: 50px;
+        border-top-left-radius: 50px;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+      }
     }
   }
 
