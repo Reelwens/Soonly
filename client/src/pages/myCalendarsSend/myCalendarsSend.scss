@@ -6,6 +6,7 @@ page-myCalendarsSend .calendarGroup .case {
 
   &.open {
     border: dashed 1px #C6E0FD;
+    opacity: 0.54;
 
     .content .info {
       display: block;

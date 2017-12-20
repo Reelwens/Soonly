@@ -84,7 +84,10 @@ page-myCalendarsReceived, page-myCalendarsSend {
         box-shadow: 0 2px 15px 0 rgba(167, 182, 209, 0.4);
 
         .content .info {
+          position: absolute;
+          transform: translateY(50px);
           display: block;
+          font-weight: 600;
         }
 
         .mask {
@@ -226,6 +229,7 @@ page-myCalendarsReceived .calendarGroup .case {
 
   &.open {
     border: dashed 1px #C6E0FD;
+    opacity: 0.54;
 
     .mask {
       border-left: dashed 1px #C6E0FD;
