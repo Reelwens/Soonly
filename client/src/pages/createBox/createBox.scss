@@ -1,6 +1,5 @@
 page-createbox.ion-page {
   &.ion-page .mainContent ion-content .scroll-content {
-    background-color: #f6f9fe;
     padding: 25px 0px 25px 8px!important;
   }
 
@@ -42,6 +41,7 @@ page-createbox.ion-page {
         padding: 12px;
         background-color: white;
         border-radius: 100px;
+        width: 54px;
       }
 
       p {
