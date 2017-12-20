@@ -6,14 +6,9 @@
 <div class="mainContent">
 
   <div class="subHeader">
-    <div class="user active">
+    <div *ngFor="let calendar of calendars; let isFirst = first" class="user" [ngClass]="{'active': isFirst}">
       <img src="assets/imgs/person.svg" alt="Image">
-      <p>Louis</p>
-      <div class="selectMark"></div>
-    </div>
-    <div class="user">
-      <img src="assets/imgs/person.svg" alt="Image">
-      <p>Papy Jacky</p>
+      <p>{{ calendar.name }}</p>
       <div class="selectMark"></div>
     </div>
   </div>

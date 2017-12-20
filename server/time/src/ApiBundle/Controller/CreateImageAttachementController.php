@@ -43,6 +43,6 @@ class CreateImageAttachementController extends Controller {
 				$data["image"]["id"] = $image->getId();
 			}
 		}
-		return new JsonResponse($data);
+		 return new JsonResponse($data, 200, ["Access-Control-Allow-Origin" => "*"]);
 	}
 }

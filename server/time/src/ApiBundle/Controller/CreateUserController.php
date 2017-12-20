@@ -91,7 +91,7 @@ class CreateUserController extends Controller {
 			unset($data["user"]["password"]);
 		}
 		
-		return new JsonResponse($data);
+		 return new JsonResponse($data, 200, ["Access-Control-Allow-Origin" => "*"]);
 	}
 	
 }

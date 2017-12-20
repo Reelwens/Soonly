@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { Storage }     from '@ionic/storage';
 
 // API
-//import { Service } from '../../services/soonly.service';
+import { Service } from '../../services/soonly.service';
 
 // Pages
 import { CalendarPage } from '../calendar/calendar';
@@ -12,10 +13,27 @@ import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreation
 @Component({
   selector: 'page-myCalendarsReceived',
   templateUrl: 'myCalendarsReceived.html'
-})
-export class MyCalendarsReceivedPage {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+})
+export class MyCalendarsReceivedPage implements OnInit {
+
+  calendars: any;
+
+  constructor(public navCtrl:     NavController,
+              public alertCtrl:   AlertController,
+              public apiService:  Service,
+              public storage:     Storage) {
+  }
+
+  public ngOnInit() {
+    this.storage.get("token").then( key => {
+      this.apiService.setApiKey( key );
+      this.apiService.getCalendars( ).subscribe(
+        data => {
+          this.calendars = data.calendarsReceiver;
+        }
+      );
+    });
   }
 
   // Send data to calendar page
