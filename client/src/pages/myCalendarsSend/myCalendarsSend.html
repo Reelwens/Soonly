@@ -15,67 +15,18 @@
 
   <ion-content>
     <div class="calendarGroup">
-      <div class="case open"> <!-- .addBright at the creation of the calendar, .dark in 'page-mycalendarssend' to create darker -->
+      <div *ngFor="let event of events" class="case" [ngClass]="{'add': event.id===-1, 'fill': event.id!==-1, 'open': event.viewed, 'discover': event.discover}">
         <div class="content">
-          <p class="dayLeft">J-6</p>
-          <p class="dayNumber">3</p>
-          <p class="info">Case ouverte</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case fill">
-        <div class="content">
-          <p class="dayLeft">J-5</p>
-          <p class="dayNumber">4</p>
-          <p class="info">Case remplie</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case add">
-        <div class="content">
-          <p class="dayLeft">J-4</p>
-          <p class="dayNumber">5</p>
-          <p class="info">Cliquez pour ajouter</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case fill">
-        <div class="content">
-          <p class="dayLeft">J-3</p>
-          <p class="dayNumber">6</p>
-          <p class="info">Case remplie</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-2</p>
-          <p class="dayNumber">7</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-1</p>
-          <p class="dayNumber">8</p>
-          <p class="info">Cliquez pour découvrir</p>
+          <p class="dayLeft">J-{{ event.dayLeft }}</p>
+          <p class="dayNumber">{{ event.dayNumber }}</p>
+          <p class="info" *ngIf="event.id===-1">Remplir la case</p>
+          <p class="info" *ngIf="event.viewed">Vu !</p>
+          <p class="info" *ngIf="!event.viewed && event.discover || event.toBeSeen">Bientôt vu !</p>
         </div>
         <div class="mask"></div>
         <div class="mask2"></div>
       </div>
     </div>
-
     <div class="addButton" (tap)="showCalendarCreationOne()">
       <img src="assets/imgs/add.svg" alt="Image">
     </div>

@@ -9,6 +9,7 @@ import { Service } from '../../services/soonly.service';
 import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'page-myCalendarsSend',
@@ -17,22 +18,35 @@ import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreation
 export class MyCalendarsSendPage implements OnInit {
 
   calendars: any;
+  events: any;
+  private observqbleEvents: Observable<any>;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage, public apiService: Service) {
   }
 
   ngOnInit(): void {
-
+    this.observqbleEvents = this.apiService.getEvents();
+    const component = this;
     this.storage.get("token").then( key => {
       this.apiService.setApiKey( key );
-      this.apiService.getCalendars( ).subscribe(
+      this.apiService.getEvents().subscribe(
+        data => {
+          component.events = data.calendars;
+          console.log(data);
+          component.events = data.calendars['1'];
+        }
+      );
+      this.apiService.getCalendars().subscribe(
         data => {
           this.calendars = data.calendars;
+          console.log(data);
         }
       );
     });
   }
-
+fd(){
+    console.log(this.events);
+}
   // Send data to calendar page
   showCalendar(name: string) : void {
     this.navCtrl.push(CalendarPage, {
@@ -58,5 +72,9 @@ export class MyCalendarsSendPage implements OnInit {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  hax(variable: any) {
+    return Array.from(variable);
   }
 }

@@ -46,6 +46,11 @@ export class Service implements OnInit{
     return this.http.get(url);
   }
 
+  public getEvents(): any {
+    const url = `${this.baseUrl}getEvents/${this.apiKey}`;
+    return this.http.get(url);
+  }
+
   public createUser(phone: string, surname: string, password: string): Promise<any> {
     return this.storage.get("token")
       .then( token => {
@@ -122,4 +127,6 @@ export class Service implements OnInit{
       .then(response => response)
       .catch(error => console.log('Une erreur est survenue : ' + error))// Error getting the data
   }
+
+
 }

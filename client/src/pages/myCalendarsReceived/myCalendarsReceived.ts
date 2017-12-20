@@ -18,6 +18,7 @@ import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreation
 export class MyCalendarsReceivedPage implements OnInit {
 
   calendars: any;
+  events: any;
 
   constructor(public navCtrl:     NavController,
               public alertCtrl:   AlertController,
@@ -28,9 +29,16 @@ export class MyCalendarsReceivedPage implements OnInit {
   public ngOnInit() {
     this.storage.get("token").then( key => {
       this.apiService.setApiKey( key );
-      this.apiService.getCalendars( ).subscribe(
+      this.apiService.getCalendars().subscribe(
         data => {
-          this.calendars = data.calendarsReceiver;
+          this.calendars = data.calendars;
+          console.log(data);
+        }
+      );
+      this.apiService.getEvents().subscribe(
+        data => {
+          this.events = data.calendars;
+          console.log(this.events);
         }
       );
     });
