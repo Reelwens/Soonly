@@ -13,6 +13,8 @@ import { CalendarCreationOnePage } from '../pages/calendarCreationOne/calendarCr
 import { CalendarCreationTwoPage } from '../pages/calendarCreationTwo/calendarCreationTwo';
 import { CalendarCreationThreePage } from '../pages/calendarCreationThree/calendarCreationThree';
 import { CreateBoxPage } from '../pages/createBox/createBox';
+import { InscriptionPage } from '../pages/inscription/inscription';
+import { InscriptionNextPage } from '../pages/inscriptionNext/inscriptionNext';
 
 // API
 import { Service } from '../services/soonly.service';
@@ -27,7 +29,9 @@ import {IonicStorageModule} from "@ionic/storage";
     CalendarCreationOnePage,
     CalendarCreationTwoPage,
     CalendarCreationThreePage,
-    CreateBoxPage
+    CreateBoxPage,
+    InscriptionPage,
+    InscriptionNextPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import {IonicStorageModule} from "@ionic/storage";
     CalendarCreationOnePage,
     CalendarCreationTwoPage,
     CalendarCreationThreePage,
-    CreateBoxPage
+    CreateBoxPage,
+    InscriptionPage,
+    InscriptionNextPage
   ],
   providers: [
     Service,
