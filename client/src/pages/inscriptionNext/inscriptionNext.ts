@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 
 // API
 //import { Service } from '../../services/soonly.service';
@@ -11,9 +12,12 @@ import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsRecei
   selector: 'page-inscriptionNext',
   templateUrl: 'inscriptionNext.html'
 })
-export class InscriptionNextPage {
+export class InscriptionNextPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage) {
+  }
+
+  ngOnInit(): void {
   }
 
   // Go back

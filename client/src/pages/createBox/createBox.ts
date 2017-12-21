@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Camera } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
@@ -15,7 +16,7 @@ import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
   templateUrl: 'createBox.html',
   providers: [[Camera], [MediaCapture], [Base64]]
 })
-export class CreateBoxPage {
+export class CreateBoxPage implements OnInit {
 
   // variables
   username: string;
@@ -23,9 +24,12 @@ export class CreateBoxPage {
   b64: Base64;
   test: MediaCapture;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public mediaCapture: MediaCapture, public base64: Base64) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public mediaCapture: MediaCapture, public base64: Base64, public storage: Storage) {
     this.mCapture = mediaCapture;
     this.b64 = base64;
+  }
+
+  ngOnInit(): void {
   }
 
   // Move back

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 
 // API
 //import { Service } from '../../services/soonly.service';
@@ -13,12 +14,15 @@ import { CalendarCreationTwoPage } from '../calendarCreationTwo/calendarCreation
   selector: 'page-calendarCreationOne',
   templateUrl: 'calendarCreationOne.html'
 })
-export class CalendarCreationOnePage {
+export class CalendarCreationOnePage implements OnInit {
 
   // variables
   username: string;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage) {
+  }
+
+  ngOnInit(): void {
   }
 
   // Move to CalendarCreationTwo page & send data

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 import { NavParams } from 'ionic-angular';
 
 // API
@@ -16,14 +17,18 @@ import { MemoriesPage } from '../memories/memories';
   selector: 'page-myCalendarsSend',
   templateUrl: 'myCalendarsSend.html'
 })
-export class MyCalendarsSendPage {
+export class MyCalendarsSendPage implements OnInit {
   private fullPath : string = 'assets/imgs/mic.svg';
   private base64 : string = '';
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public storage: Storage) {
     if(navParams.get('img') != null && navParams.get('base64') != null) {
         this.fullPath = navParams.get('img');
         this.base64 = navParams.get('base64');
     }
+  }
+
+  ngOnInit(): void {
   }
 
   // Send data to calendar page
