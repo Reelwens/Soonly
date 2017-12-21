@@ -1,0 +1,12 @@
+page-myCalendarsReceived, page-myCalendarsSend {
+  position: relative;
+
+  &.ion-page .mainContent ion-content .scroll-content {
+    background-color: #f6f9fe;
+    padding: 25px 8px!important;
+
+    @media (min-width: 567px) {
+      padding: 25px!important;
+    }
+  }
+}

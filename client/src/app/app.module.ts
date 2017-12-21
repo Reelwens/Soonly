@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
+import { DatePicker } from '@ionic-native/date-picker';
 
 // Pages
 import { MyCalendarsReceivedPage } from '../pages/myCalendarsReceived/myCalendarsReceived';
@@ -13,6 +14,9 @@ import { CalendarCreationOnePage } from '../pages/calendarCreationOne/calendarCr
 import { CalendarCreationTwoPage } from '../pages/calendarCreationTwo/calendarCreationTwo';
 import { CalendarCreationThreePage } from '../pages/calendarCreationThree/calendarCreationThree';
 import { CreateBoxPage } from '../pages/createBox/createBox';
+import { InscriptionPage } from '../pages/inscription/inscription';
+import { InscriptionNextPage } from '../pages/inscriptionNext/inscriptionNext';
+import { MemoriesPage } from '../pages/memories/memories';
 
 // API
 import { Service } from '../services/soonly.service';
@@ -28,7 +32,10 @@ import {HttpClientModule} from "@angular/common/http";
     CalendarCreationOnePage,
     CalendarCreationTwoPage,
     CalendarCreationThreePage,
-    CreateBoxPage
+    CreateBoxPage,
+    InscriptionPage,
+    InscriptionNextPage,
+    MemoriesPage
   ],
   imports: [
     BrowserModule,
@@ -45,12 +52,16 @@ import {HttpClientModule} from "@angular/common/http";
     CalendarCreationOnePage,
     CalendarCreationTwoPage,
     CalendarCreationThreePage,
-    CreateBoxPage
+    CreateBoxPage,
+    InscriptionPage,
+    InscriptionNextPage,
+    MemoriesPage
   ],
   providers: [
     Service,
     StatusBar,
     SplashScreen,
+    DatePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -12,6 +12,7 @@ import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsRecei
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 import {Observable} from "rxjs/Observable";
 import { CreateBoxPage } from '../createBox/createBox';
+import { MemoriesPage } from '../memories/memories';
 
 @Component({
   selector: 'page-myCalendarsSend',
@@ -64,6 +65,11 @@ export class MyCalendarsSendPage implements OnInit {
   // Move to myCalendarReceived page
   showMyCalendarsReceived(name: string) : void {
     this.navCtrl.push(MyCalendarsReceivedPage);
+  }
+
+  // Move to myCalendarReceived page
+  showMemories(name: string) : void {
+    this.navCtrl.push(MemoriesPage);
   }
 
   // Move to calendarCreationOne page

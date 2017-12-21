@@ -9,6 +9,8 @@ import { Service } from '../../services/soonly.service';
 import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
+import { InscriptionPage } from '../inscription/inscription';
+import { MemoriesPage } from '../memories/memories';
 
 @Component({
   selector: 'page-myCalendarsReceived',
@@ -66,26 +68,24 @@ export class MyCalendarsReceivedPage implements OnInit {
     this.navCtrl.push(MyCalendarsSendPage);
   }
 
+  // Move to myCalendarReceived page
+  showMemories(name: string) : void {
+    this.navCtrl.push(MemoriesPage);
+  }
+
   // Move to calendarCreationOne page
   showCalendarCreationOne(name: string) : void {
     this.navCtrl.push(CalendarCreationOnePage);
+  }
+
+  // Move to inscription page
+  showInscription(name: string) : void {
+    this.navCtrl.push(InscriptionPage);
   }
 
   showTheCalendar(id: number) {
     this.navCtrl.push(MyCalendarsReceivedPage, {
       calendar: id
     });
-  }
-
-
-
-  // Print alert
-  alertAction() : void {
-    let alert = this.alertCtrl.create({
-      title: 'Bravo !',
-      subTitle: 'Tu as appuyé sur le bouton !',
-      buttons: ['OK']
-    });
-    alert.present();
   }
 }

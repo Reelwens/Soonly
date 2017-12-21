@@ -1,0 +1,54 @@
+<div class="topHeader">
+  <img src="assets/imgs/logo-soonly.svg" alt="Image" class="logo">
+  <img src="assets/imgs/settings.svg" alt="Image" class="settings" (tap)=showInscription()>
+</div>
+
+<div class="mainContent">
+  <div class="subHeader">
+    <div class="user active">
+      <img src="assets/imgs/person.svg" alt="Image">
+      <p>Tous</p>
+      <div class="selectMark"></div>
+    </div>
+    <div class="user">
+      <img src="assets/imgs/person.svg" alt="Image">
+      <p>Louis</p>
+      <div class="selectMark"></div>
+    </div>
+    <div class="user">
+      <img src="assets/imgs/person.svg" alt="Image">
+      <p>Papy Jacky</p>
+      <div class="selectMark"></div>
+    </div>
+  </div>
+
+  <ion-content>
+
+  </ion-content>
+</div>
+
+<div class="tabBar hide-on-keyboard-open">
+  <div class="logoPlacement">
+    <img src="assets/imgs/logo-soonly.svg" alt="Image">
+  </div>
+
+  <div class="menu">
+    <div class="menuItem" (tap)="showMyCalendarsReceived()">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/event.svg" alt="Image">
+      <p>Reçus</p>
+    </div>
+
+    <div class="menuItem" (tap)="showMyCalendarsSend()">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/send.svg" alt="Image">
+      <p>Envoyés</p>
+    </div>
+
+    <div class="menuItem active">
+      <div class="borderLeft"></div>
+      <img src="assets/imgs/photo_library-active.svg" alt="Image">
+      <p>Souvenirs</p>
+    </div>
+  </div>
+</div>

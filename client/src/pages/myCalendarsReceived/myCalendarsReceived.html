@@ -1,6 +1,6 @@
 <div class="topHeader">
   <img src="assets/imgs/logo-soonly.svg" alt="Image" class="logo">
-  <img src="assets/imgs/settings.svg" alt="Image" class="settings">
+  <img src="assets/imgs/settings.svg" alt="Image" class="settings" (tap)=showInscription()>
 </div>
 
 <div class="mainContent">
@@ -16,6 +16,7 @@
 
 
   <ion-content>
+    <div class="date">Décembre 2017</div>
     <div class="calendarGroup">
       <div *ngFor="let event of events" class="case" [ngClass]="{'add': event.id===-1, 'fill': event.id!==-1, 'open': event.viewed, 'discover': event.discover}">
         <div class="content">
@@ -53,7 +54,7 @@
       <p>Envoyés</p>
     </div>
 
-    <div class="menuItem">
+    <div class="menuItem" (tap)="showMemories()">
       <div class="borderLeft"></div>
       <img src="assets/imgs/photo_library.svg" alt="Image">
       <p>Souvenirs</p>

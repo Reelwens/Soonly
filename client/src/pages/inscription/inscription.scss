@@ -1,0 +1,121 @@
+page-inscription.ion-page, page-inscriptionnext.ion-page {
+  .backArrow {
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .content {
+    height: 100%;
+    text-align: center;
+  }
+
+  .mainContent {
+    height: calc(100vh);
+
+    img.logo {
+      display: block;
+      margin: 0 auto;
+      margin-top: 9vh;
+      width: 90px;
+    }
+
+    img.manHappy {
+      width: 180px;
+      margin: 8px 0;
+      margin-top: 30px;
+    }
+
+    .title {
+      margin: 0 auto;
+      margin-top: 3vh;
+      color: #a7b6d1;
+      font-size: 20px;
+      font-weight: 500;
+      width: 80%;
+
+      @media (min-width: 567px) {
+        font-size: 25px;
+      }
+    }
+
+    .inputBox {
+      display: flex;
+      margin-top: 9vh;
+
+      .inputGroup {
+        margin: 0 8px;
+      }
+    }
+
+    .inputGroup {
+      position: relative;
+      border-bottom: 2px solid #9B76DA;
+      display: flex;
+      height: 45px;
+      width: 70%;
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 7vh;
+
+      .label {
+        color: #203c6c;
+        font-size: 16px;
+        font-weight: 500;
+        position: absolute;
+        transform: translateY(-17px);
+      }
+
+      img {
+        width: 20px;
+      }
+
+      ion-input {
+        border: none;
+        height: 43px;
+        width: 100%;
+        font-size: 20px;
+        color: #203c6c;
+
+        input {
+          transform: none!important;
+        }
+
+        &::placeholder {
+          color: #a7b6d1;
+        }
+      }
+    }
+
+    .button {
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 23vh;
+      background-color: #a7b6d1;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      box-shadow: 0 2px 15px 0 rgba(157, 119, 224, 0.4);
+      padding: 18px 0;
+      text-transform: uppercase;
+      transition: all .3s;
+      max-width: 400px;
+
+      &.active {
+        background-color: #9d77e0;
+      }
+
+    }
+
+    .connectPhrase {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #a7b6d1;
+      text-decoration: underline;
+    }
+  }
+}
