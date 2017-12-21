@@ -197,13 +197,21 @@ page-myCalendarsReceived, page-myCalendarsSend {
 }
 
 .dark {
-  .topHeader, .subHeader, .case, .addButton, .menu {
+  .subHeader, .case, .addButton, .menu {
     filter: brightness(0.4);
     background-color: rgba(#000000, 0.6);
   }
 
   .scroll-content {
     background-color: rgba(#000000, 0.6)!important;
+  }
+
+  .topHeader {
+    filter: brightness(0.4);
+  }
+
+  .date {
+    color: #484b50;
   }
 
   .modalMessage {
