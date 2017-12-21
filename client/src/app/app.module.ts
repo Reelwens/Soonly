@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
 
 // Pages
@@ -13,6 +12,7 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { CalendarCreationOnePage } from '../pages/calendarCreationOne/calendarCreationOne';
 import { CalendarCreationTwoPage } from '../pages/calendarCreationTwo/calendarCreationTwo';
 import { CalendarCreationThreePage } from '../pages/calendarCreationThree/calendarCreationThree';
+import { CreateBoxPage } from '../pages/createBox/createBox';
 
 // API
 import { Service } from '../services/soonly.service';
@@ -27,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
     CalendarPage,
     CalendarCreationOnePage,
     CalendarCreationTwoPage,
-    CalendarCreationThreePage
+    CalendarCreationThreePage,
+    CreateBoxPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import {HttpClientModule} from "@angular/common/http";
     CalendarPage,
     CalendarCreationOnePage,
     CalendarCreationTwoPage,
-    CalendarCreationThreePage
+    CalendarCreationThreePage,
+    CreateBoxPage
   ],
   providers: [
     Service,

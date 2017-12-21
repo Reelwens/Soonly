@@ -21,8 +21,8 @@ page-myCalendarsReceived, page-myCalendarsSend {
       width: calc(50% - 16px);
       padding-top: calc(50% - 16px);
       margin: 8px;
-      border-radius: 5px;
       background-size: 100% 100%;
+      border: 1px solid #C6E0FD;
 
       &:nth-child(14n - 13) {
         background-image: url('../assets/imgs/cases/Case-Type1.png');
@@ -81,53 +81,17 @@ page-myCalendarsReceived, page-myCalendarsSend {
       }
 
       &.discover {
-        border: dashed 2px #a7b6d1;
         box-shadow: 0 2px 15px 0 rgba(167, 182, 209, 0.4);
-        background-image: url('../assets/imgs/cases/Case-TypeAjd.png');
 
         .content .info {
+          position: absolute;
+          transform: translateY(50px);
           display: block;
+          font-weight: 600;
         }
 
         .mask {
-          border-left: dashed 2px #a7b6d1;
-          border-top: dashed 2px #a7b6d1;
-          border-bottom: dashed 2px #a7b6d1;
           box-shadow: inset 0px 2px 5px 0px rgba(167,182,209,0.4);
-        }
-      }
-
-      &.add .content .info {
-        display: block;
-        color: #203c6c;
-      }
-
-      &.open .content .info {
-        display: block;
-        color: #ce7070;
-      }
-
-      &.fill .content .info {
-        display: block;
-        color: #70cea4;
-      }
-
-      &.addBright {
-        z-index: 20;
-        box-shadow: 0 2px 15px 0 #a7b6d1;
-        filter: none;
-
-        .mask {
-          box-shadow: inset 0 2px 15px 0 #a7b6d1;
-          filter: brightness(0.4);
-        }
-
-        .mask2 {
-          filter: brightness(0.4);
-        }
-
-        .content .info {
-          display: block;
         }
       }
 
@@ -143,9 +107,13 @@ page-myCalendarsReceived, page-myCalendarsSend {
         height: 100%;
 
         .dayLeft {
+          position: absolute;
           font-size: 16px;
           color: #203c6c;
           margin-bottom: 5px;
+          top: 10px;
+          left: 10px;
+          font-weight: 500;
         }
 
         .dayNumber {
@@ -174,6 +142,7 @@ page-myCalendarsReceived, page-myCalendarsSend {
         top: 50%;
         right: 0;
         transform: translate(7px, -50%);
+        border: 1px solid #C6E0FD;
       }
 
       .mask2 {
@@ -253,5 +222,19 @@ page-myCalendarsReceived, page-myCalendarsSend {
     font-size: 16px;
     font-weight: 500;
     padding: 0 15px;
+  }
+}
+
+page-myCalendarsReceived .calendarGroup .case {
+
+  &.open {
+    border: dashed 1px #C6E0FD;
+    opacity: 0.54;
+
+    .mask {
+      border-left: dashed 1px #C6E0FD;
+      border-top: dashed 1px #C6E0FD;
+      border-bottom: dashed 1px #C6E0FD;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Storage} from "@ionic/storage";
+import { NavParams } from 'ionic-angular';
 
 // API
 import { Service } from '../../services/soonly.service';
@@ -10,6 +11,7 @@ import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 import {Observable} from "rxjs/Observable";
+import { CreateBoxPage } from '../createBox/createBox';
 
 @Component({
   selector: 'page-myCalendarsSend',
@@ -19,34 +21,39 @@ export class MyCalendarsSendPage implements OnInit {
 
   calendars: any;
   events: any;
-  private observqbleEvents: Observable<any>;
+  calendarid: any = 2;
+  private fullPath : string = 'assets/imgs/mic.svg';
+  private base64 : string = '';
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage, public apiService: Service) {
+  constructor(public storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams,public apiService: Service) {
+    this.calendarid = navParams.get('calendar');
+    if(navParams.get('img') != null && navParams.get('base64') != null) {
+        this.fullPath = navParams.get('img');
+        this.base64 = navParams.get('base64');
+    }
   }
 
   ngOnInit(): void {
-    this.observqbleEvents = this.apiService.getEvents();
     const component = this;
     this.storage.get("token").then( key => {
       this.apiService.setApiKey( key );
       this.apiService.getEvents().subscribe(
         data => {
-          component.events = data.calendars;
-          console.log(data);
-          component.events = data.calendars['1'];
+          if ( this.calendarid === undefined ) {
+            component.events = data.calendars[Object.keys( data.calendars )[0]];
+            component.calendarid = Object.keys( data.calendars )[0];
+          } else {
+            component.events = data.calendars[component.calendarid];
+          }
         }
       );
       this.apiService.getCalendars().subscribe(
         data => {
-          this.calendars = data.calendars;
-          console.log(data);
+          component.calendars = data.calendars;
         }
       );
     });
   }
-fd(){
-    console.log(this.events);
-}
   // Send data to calendar page
   showCalendar(name: string) : void {
     this.navCtrl.push(CalendarPage, {
@@ -64,6 +71,18 @@ fd(){
     this.navCtrl.push(CalendarCreationOnePage);
   }
 
+  // Move to createBox page
+  showCreateBox(name: string) : void {
+    this.navCtrl.push(CreateBoxPage);
+  }
+
+  showTheCalendar(id: number) {
+    this.navCtrl.push(MyCalendarsSendPage, {
+      calendar: id
+    });
+  }
+
+
   // Print alert
   alertAction() : void {
     let alert = this.alertCtrl.create({
@@ -74,7 +93,7 @@ fd(){
     alert.present();
   }
 
-  hax(variable: any) {
-    return Array.from(variable);
+  changeDisplayedCalendar(param: number) {
+
   }
 }

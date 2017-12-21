@@ -6,10 +6,14 @@
 <div class="mainContent">
 
   <div class="subHeader">
-    <div *ngFor="let calendar of calendars; let isFirst = first" class="user" [ngClass]="{'active': isFirst}">
-      <img src="assets/imgs/person.svg" alt="Image">
-      <p>{{ calendar.name }}</p>
-      <div class="selectMark"></div>
+    <div class="subHeader">
+      <div *ngFor="let calendar of calendars; let isFirst = first" class="user"
+           [ngClass]="{'active': ((isFirst && calendarid===undefined) || (calendarid == calendar.id)) }"
+           (tap)="showTheCalendar(calendar.id)">
+        <img src="assets/imgs/person.svg" alt="Image">
+        <p>{{ calendar.name }}</p>
+        <div class="selectMark"></div>
+      </div>
     </div>
   </div>
 
@@ -63,4 +67,10 @@
   <img src="assets/imgs/touch.svg" alt="Image">
   <h3>Félicitations !</h3>
   <p>Votre calendrier est créé, cliquez sur la case pour créer votre première surprise…</p>
+</div>
+
+<div class="noBoxContent">
+  <img src="assets/imgs/illu4.png" alt="Image">
+  <h3>Aucun calendrier en vue</h3>
+  <p>Créez-en un pour l’un de vos proches en cliquant sur le bouton ci-dessous</p>
 </div>

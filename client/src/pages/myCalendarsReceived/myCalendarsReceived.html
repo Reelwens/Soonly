@@ -5,106 +5,30 @@
 
 <div class="mainContent">
   <div class="subHeader">
-    <div *ngFor="let calendar of calendars; let isFirst = first" class="user" [ngClass]="{'active': isFirst}">
+    <div *ngFor="let calendar of calendars; let isFirst = first" class="user"
+         [ngClass]="{'active': ((isFirst && calendarid===undefined) || (calendarid == calendar.id)) }"
+         (tap)="showTheCalendar(calendar.id)">
       <img src="assets/imgs/person.svg" alt="Image">
       <p>{{ calendar.name }}</p>
       <div class="selectMark"></div>
     </div>
   </div>
 
+
   <ion-content>
     <div class="calendarGroup">
-      <div class="case">
+      <div *ngFor="let event of events" class="case" [ngClass]="{'add': event.id===-1, 'fill': event.id!==-1, 'open': event.viewed, 'discover': event.discover}">
         <div class="content">
-          <p class="dayLeft">J-14</p>
-          <p class="dayNumber">17</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case discover">
-        <div class="content">
-          <p class="dayLeft">J-13</p>
-          <p class="dayNumber">18</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-12</p>
-          <p class="dayNumber">19</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-11</p>
-          <p class="dayNumber">20</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-10</p>
-          <p class="dayNumber">21</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-09</p>
-          <p class="dayNumber">22</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-08</p>
-          <p class="dayNumber">23</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-08</p>
-          <p class="dayNumber">23</p>
-          <p class="info">Cliquez pour découvrir</p>
-        </div>
-        <div class="mask"></div>
-        <div class="mask2"></div>
-      </div>
-
-      <div class="case">
-        <div class="content">
-          <p class="dayLeft">J-08</p>
-          <p class="dayNumber">24</p>
-          <p class="info">Cliquez pour découvrir</p>
+          <p class="dayLeft">J-{{ event.dayLeft }}</p>
+          <p class="dayNumber">{{ event.dayNumber }}</p>
+          <p class="info" *ngIf="event.id===-1">Peut-être une surprise ? </p>
+          <p class="info" *ngIf="event.viewed">Vu !</p>
+          <p class="info" *ngIf="!event.viewed && event.discover || event.toBeSeen">Ouvrez vite !</p>
         </div>
         <div class="mask"></div>
         <div class="mask2"></div>
       </div>
     </div>
-
     <div class="addButton" (tap)="showCalendarCreationOne()">
       <img src="assets/imgs/add.svg" alt="Image">
     </div>

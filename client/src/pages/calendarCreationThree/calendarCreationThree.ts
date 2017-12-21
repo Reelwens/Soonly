@@ -6,8 +6,6 @@ import { NavController, AlertController } from 'ionic-angular';
 
 // Pages
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
-import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
-import { CalendarCreationTwoPage } from '../calendarCreationTwo/calendarCreationTwo';
 
 @Component({
   selector: 'page-calendarCreationThree',
@@ -18,9 +16,14 @@ export class CalendarCreationThreePage {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
   }
 
-  // Move to myCalendarReceived page
+  // Go back
   showBack(name: string) : void {
     this.navCtrl.pop();
+  }
+
+  // Move to myCalendarSend page
+  showMyCalendarsSend(name: string) : void {
+    this.navCtrl.push(MyCalendarsSendPage);
   }
 
 }

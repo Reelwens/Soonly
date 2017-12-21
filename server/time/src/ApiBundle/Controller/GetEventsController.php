@@ -32,9 +32,6 @@ class GetEventsController extends Controller {
 		if ($user === null) {
 			$data["error"] = "token.invalid";
 		} else {
-			
-			
-			
 			/** @var Calendar $calendar */
 			foreach ($user->getCalendars()->getValues() as $key => $calendar) {
 				
@@ -49,7 +46,7 @@ class GetEventsController extends Controller {
 				foreach ( $dateRange as $key2 => $date ){
 					/** @var Event $event */
 					$event = $this->getDoctrine()->getRepository("ApiBundle:Event")->findOneBy([ "date" => $date]);
-					
+					$data["calendars"][$calendar->getId()][$key2]["date"] = $date->format("d/m/Y");
 					if ($event === null ) {
 						$data["calendars"][$calendar->getId()][$key2]["id"] = -1;
 						$data["calendars"][$calendar->getId()][$key2]["dayLeft"]        = $date->diff($calendar->getEndDate())->days - 1 === 0 ? "J" : $date->diff($calendar->getEndDate())->days - 1;
@@ -59,50 +56,51 @@ class GetEventsController extends Controller {
 						$data["calendars"][$calendar->getId()][$key2]["id"]             = $event->getId();
 						$data["calendars"][$calendar->getId()][$key2]["attachement"]    = $event->getAttachement() === null ? -1 : $event->getAttachement()->getId();
 						$data["calendars"][$calendar->getId()][$key2]["viewed"]         = $event->getViewed();
-						$data["calendars"][$calendar->getId()][$key2]["dayLeft"]        = $date->diff($calendar->getEndDate())->days - 1;
+						$data["calendars"][$calendar->getId()][$key2]["dayLeft"]        = $date->diff($calendar->getEndDate())->days - 1 === 0 ? "J" : $date->diff($calendar->getEndDate())->days - 1;
 						$data["calendars"][$calendar->getId()][$key2]["dayNumber"]      = $date->diff($calendar->getCreationDate())->days + 1 ;
 						$data["calendars"][$calendar->getId()][$key2]["discover"]       = $date == $event->getDate();
 						$data["calendars"][$calendar->getId()][$key2]["toBeSeen"]       = (new \DateTime("now") < $event->getDate());
-						
 						if ($event->getDate() > new \DateTime("now")) {
 							$data["calendars"][$calendar->getId()][$key2]["openable"]   = false;
 						} else {
 							$data["calendars"][$calendar->getId()][$key2]["openable"]   = true;
 						}
-						
 					}
-				
 				}
 			}
 			
-			/** @var Calendar $calendar */
-			foreach ($user->getCalendarsReceiver()->getValues() as $key => $calendar) {
+			/** @var Calendar $calendar2 */
+			foreach ($user->getCalendarsReceiver()->getValues() as $key => $calendar2) {
 				
 				/** @var \DatePeriod $dateRange */
 				$dateRange     = new \DatePeriod(
-					$calendar->getCreationDate(),
+					$calendar2->getCreationDate(),
 					new \DateInterval("P1D"),
-					$calendar->getEndDate()->modify("+1 day")
+					$calendar2->getEndDate()
 				);
 				/** @var Event $event */
 				/** @var \DateTime $date */
 				foreach ( $dateRange as $key2 => $date ){
 					/** @var Event $event */
 					$event = $this->getDoctrine()->getRepository("ApiBundle:Event")->findOneBy([ "date" => $date]);
-					
+					$data["calendarsReceiver"][$calendar2->getId()][$key2]["date"] = $date->format("d/m/Y");
 					if ($event === null ) {
-						$data["calendarsReceiver"][$calendar->getId()][$key2]["id"] = -1;
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["id"] = -1;
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["dayLeft"]        = $date->diff($calendar2->getEndDate())->days - 1 === 0 ? "J" : $date->diff($calendar2->getEndDate())->days - 1;
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["dayNumber"]      = $date->diff($calendar2->getCreationDate())->days + 1 ;
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["discover"]       = false;
 					} else {
-						$data["calendarsReceiver"][$calendar->getId()][$key2]["id"]             = $event->getId();
-						$data["calendarsReceiver"][$calendar->getId()][$key2]["attachement"]    = $event->getAttachement() === null ? -1 : $event->getAttachement()->getId();
-						$data["calendarsReceiver"][$calendar->getId()][$key2]["viewed"]         = $event->getViewed();
-						$data["calendarsReceiver"][$calendar->getId()][$key2]["dayLeft"]        = $event->getDate()->diff($calendar->getEndDate())->days;
-						$data["calendarsReceiver"][$calendar->getId()][$key2]["dayNumber"]      = $event->getDate()->diff($calendar->getCreationDate())->days + 1 ;
-						
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["id"]             = $event->getId();
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["attachement"]    = $event->getAttachement() === null ? -1 : $event->getAttachement()->getId();
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["viewed"]         = $event->getViewed();
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["dayLeft"]        = $date->diff($calendar2->getEndDate())->days - 1 === 0 ? "J" : $date->diff($calendar2->getEndDate())->days - 1;
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["dayNumber"]      = $date->diff($calendar2->getCreationDate())->days + 1 ;
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["discover"]       = $date == $event->getDate();
+						$data["calendarsReceiver"][$calendar2->getId()][$key2]["toBeSeen"]       = (new \DateTime("now") < $event->getDate());
 						if ($event->getDate() > new \DateTime("now")) {
-							$data["calendarsReceiver"][$calendar->getId()][$key2]["openable"]   = false;
+							$data["calendarsReceiver"][$calendar2->getId()][$key2]["openable"]   = false;
 						} else {
-							$data["calendarsReceiver"][$calendar->getId()][$key2]["openable"]   = true;
+							$data["calendarsReceiver"][$calendar2->getId()][$key2]["openable"]   = true;
 						}
 					}
 				}
