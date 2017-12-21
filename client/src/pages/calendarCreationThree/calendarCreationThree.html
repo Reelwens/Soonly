@@ -12,12 +12,12 @@
     <div class="inputBox">
       <div class="inputGroup">
         <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-        <ion-input type="text" placeholder="01/01/18"></ion-input>
+        <ion-input type="text" placeholder="01/01/18" (tap)=pickDate() value="{{date}}"></ion-input>
       </div>
 
       <div class="inputGroup">
         <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-        <ion-input type="text" placeholder="31/01/18"></ion-input>
+        <ion-input type="text" placeholder="31/01/18" (tap)=pickDate() value="{{date}}"></ion-input>
       </div>
     </div>
 

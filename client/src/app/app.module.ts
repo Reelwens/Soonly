@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
+import { DatePicker } from '@ionic-native/date-picker';
 
 // Pages
 import { MyCalendarsReceivedPage } from '../pages/myCalendarsReceived/myCalendarsReceived';
@@ -56,6 +57,7 @@ import {IonicStorageModule} from "@ionic/storage";
     Service,
     StatusBar,
     SplashScreen,
+    DatePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
