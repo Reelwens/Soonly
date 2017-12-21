@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import {NavController, AlertController, ToastController} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 
 // API
 //import { Service } from '../../services/soonly.service';
 
 // Pages
-import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
-import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
 import { CalendarCreationTwoPage } from '../calendarCreationTwo/calendarCreationTwo';
 
 @Component({
@@ -19,21 +17,36 @@ export class CalendarCreationOnePage implements OnInit {
   // variables
   username: string;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage, public toastCtrl: ToastController) {
   }
 
   ngOnInit(): void {
   }
 
-  // Move to CalendarCreationTwo page & send data
-  showCalendarCreationTwo(name: string) : void {
-    this.navCtrl.push(CalendarCreationTwoPage, {
-      username: this.username
+  errorToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 5000,
+      position: 'bottom',
+      showCloseButton: true,
     });
+    toast.present();
+  }
+
+  // Move to CalendarCreationTwo page & send data
+  showCalendarCreationTwo() : void {
+    if (this.username == "" || this.username == undefined ) {
+      this.errorToast("Saisissez un petit surnom !");
+    } else {
+      this.navCtrl.push(CalendarCreationTwoPage, {
+        username: this.username
+      });
+    }
+
   }
 
   // Move to myCalendarReceived page
-  showBack(name: string) : void {
+  showBack() : void {
     this.navCtrl.pop();
   }
 

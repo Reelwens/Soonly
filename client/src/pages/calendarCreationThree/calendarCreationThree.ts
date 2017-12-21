@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
-import { DatePicker } from '@ionic-native/date-picker';
+import {NavController, AlertController, NavParams} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 
 // API
@@ -15,34 +14,35 @@ import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 })
 export class CalendarCreationThreePage implements OnInit {
 
-  dPicker: DatePicker;
+  username: string;
+  phone: string;
+  dateBegin: any;
+  dateEnd: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public datePicker: DatePicker, public storage: Storage) {
-    this.dPicker = datePicker;
+  today = new Date().toJSON().split('T')[0];
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public alertCtrl: AlertController,
+              public storage: Storage) {
+
+    this.username = navParams.get('username');
+    this.phone    = navParams.get('phone');
   }
 
   ngOnInit(): void {
   }
 
   // Go back
-  showBack(name: string) : void {
+  showBack() : void {
     this.navCtrl.pop();
   }
 
   // Move to myCalendarSend page
-  showMyCalendarsSend(name: string) : void {
-    this.navCtrl.push(MyCalendarsSendPage);
-  }
+  showMyCalendarsSend() : void {
 
-  pickDate() : void {
-    this.dPicker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.dPicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
-    }).then(
-      date => date,
-      err => console.log('Error occurred while getting date: ', err)
-    );
+
+
   }
 
 }

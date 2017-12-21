@@ -11,7 +11,7 @@
 
     <div class="inputGroup">
       <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-      <ion-input type="text" placeholder="06 xx xx xx xx"></ion-input>
+      <ion-input type="text" placeholder="0x xx xx xx xx" [(ngModel)]="phone" name="phone" pattern="/^0[67][0-9]{8}$/"></ion-input>
     </div>
 
     <div class="button active" (tap)=showCalendarCreationThree()>Suivant</div>
