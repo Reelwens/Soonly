@@ -10,6 +10,7 @@ import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 import { MemoriesPage } from '../memories/memories';
+import { InscriptionPage } from '../inscription/inscription';
 
 @Component({
   selector: 'page-myCalendarsReceived',
