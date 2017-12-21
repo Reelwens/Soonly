@@ -42,13 +42,18 @@ export class Service implements OnInit{
     )
   }
 
-  public getCalendars(): any {
+  public getCalendars(): Observable<any> {
     const url = `${this.baseUrl}listCalendars/${this.apiKey}`;
     return this.http.get(url);
   }
 
-  public getEvents(): any {
+  public getEvents(): Observable<any> {
     const url = `${this.baseUrl}getEvents/${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  public getMemories(): Observable<any> {
+    const url = `${this.baseUrl}getMemories/${this.apiKey}`;
     return this.http.get(url);
   }
 
@@ -66,25 +71,6 @@ export class Service implements OnInit{
     const url = `${this.baseUrl}authenticateUser/${phone}/${password}`;
     return this.http.get(url);
   }
-
-  public inviteUser(phone: string): Promise<any> {
-      const url = `${this.baseUrl}inviteUser/${phone}/${this.apiKey}`;
-
-      return this.http.get(url)
-          .toPromise() // To have a reply
-          .then(response => response )
-          .catch(error => console.log('Une erreur est survenue : ' + error))
-  }
-
-  public getCalendar(calendar: number): Promise<any> {
-    const url = `${this.baseUrl}inviteUser/${this.apiKey}/${calendar}`;
-
-    return this.http.get(url)
-      .toPromise() // To have a reply
-      .then(response => response )
-      .catch(error => console.log('Une erreur est survenue : ' + error))
-  }
-
 
 
   public setEvent(calendarID: number, eventDate: number, eventNumber: number, attachementID: number): Promise<any> {

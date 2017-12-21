@@ -8,6 +8,7 @@ import { Storage } from "@ionic/storage";
 // Pages
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
+import {Service} from "../../services/soonly.service";
 
 
 @Component({
@@ -16,10 +17,24 @@ import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsRecei
 })
 export class MemoriesPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage) {
+  constructor(public navCtrl: NavController,
+              public alertCtrl: AlertController,
+              public storage: Storage,
+              public apiService: Service) {
   }
 
   ngOnInit(): void {
+    const component = this;
+    this.storage.get("token").then(key => {
+      if (key !== null) {
+        this.apiService.setApiKey(key);
+        this.apiService.getMemories().subscribe(
+          data => {
+            console.log(data);
+          }
+        )
+      }
+    })
   }
 
   // Move to myCalendarSend page
