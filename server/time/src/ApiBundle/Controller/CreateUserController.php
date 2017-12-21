@@ -28,7 +28,7 @@ class CreateUserController extends Controller {
 		                  ->findOneBy(["number" => $phone]);
 		
 		if ( $checkuser !== null ) {
-			if ($checkuser->getSurname() !== "" ) {
+			if ($checkuser->getSurname() !== null ) {
 				$data["error"] = "user.exists";
 			} else {
 				// The user has been invited !
