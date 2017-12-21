@@ -1,12 +1,97 @@
-page-myCalendarsReceived, page-myCalendarsSend {
+page-memories {
   position: relative;
 
   &.ion-page .mainContent ion-content .scroll-content {
     background-color: #f6f9fe;
-    padding: 25px 8px!important;
+    padding: 15px 0 25px 0!important;
 
     @media (min-width: 567px) {
       padding: 25px!important;
+    }
+  }
+
+  .memoriesGroup {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 8px;
+
+    @media (min-width: 567px) {
+      justify-content: center;
+    }
+
+    .memories {
+      display: flex;
+      width: calc(50% - 16px);
+      height: 130px;
+      margin: 8px;
+      position: relative;
+
+      img.content {
+        display: none;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      img.playIcon {
+        display: none;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5));
+      }
+
+      img.quote {
+        display: none;
+        margin-top: 22px;
+      }
+
+      p.phrase {
+        display: none;
+        font-size: 13px;
+        font-weight: 500;
+        color:#203c6c;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        height: 35%;
+        overflow: hidden;
+      }
+
+      @media (min-width: 567px) {
+        width: 220px;
+        height: 150px;
+      }
+
+      &.image {
+        img.content {
+          display: block;
+        }
+      }
+
+      &.video {
+        img.playIcon {
+          display: block;
+        }
+
+        img.content {
+          display: block;
+        }
+      }
+
+      &.text {
+        display: flex;
+        flex-flow: column;
+        background-color: white;
+
+        img.quote {
+          display: inline-block;
+        }
+
+        p.phrase {
+          display: block;
+        }
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 
 // API
 //import { Service } from '../../services/soonly.service';
@@ -13,9 +14,12 @@ import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsRecei
   selector: 'page-memories',
   templateUrl: 'memories.html'
 })
-export class MemoriesPage {
+export class MemoriesPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage) {
+  }
+
+  ngOnInit(): void {
   }
 
   // Move to myCalendarSend page

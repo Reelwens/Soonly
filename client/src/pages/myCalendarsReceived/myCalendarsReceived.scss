@@ -197,25 +197,32 @@ page-myCalendarsReceived, page-myCalendarsSend {
 }
 
 .dark {
-  .subHeader, .case, .addButton, .menu {
+  &.addButton, &.menu {
     filter: brightness(0.4);
     background-color: rgba(#000000, 0.6);
   }
 
-  .scroll-content {
-    background-color: rgba(#000000, 0.6)!important;
-  }
-
-  .topHeader {
+  &.topHeader {
     filter: brightness(0.4);
   }
 
-  .date {
-    color: #484b50;
+  &.modalMessage {
+    display: flex;
   }
 
-  .modalMessage {
-    display: flex;
+  &.mainContent {
+    .subHeader, .case {
+      filter: brightness(0.4);
+      background-color: rgba(#000000, 0.6);
+    }
+
+    .scroll-content {
+      background-color: rgba(#000000, 0.6)!important;
+    }
+
+    .date {
+      color: #484b50;
+    }
   }
 }
 

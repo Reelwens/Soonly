@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
+import { Storage } from "@ionic/storage";
 
 // API
 //import { Service } from '../../services/soonly.service';
@@ -12,12 +13,15 @@ import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
   selector: 'page-calendarCreationThree',
   templateUrl: 'calendarCreationThree.html'
 })
-export class CalendarCreationThreePage {
+export class CalendarCreationThreePage implements OnInit {
 
   dPicker: DatePicker;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public datePicker: DatePicker) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public datePicker: DatePicker, public storage: Storage) {
     this.dPicker = datePicker;
+  }
+
+  ngOnInit(): void {
   }
 
   // Go back

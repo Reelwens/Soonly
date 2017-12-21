@@ -28,6 +28,9 @@ export class InscriptionNextPage {
               public apiService: Service ) {
   }
 
+  ngOnInit(): void {
+  }
+
   // Go back
   showBack() : void {
     this.navCtrl.pop();
