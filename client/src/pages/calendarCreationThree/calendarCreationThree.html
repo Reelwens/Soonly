@@ -10,15 +10,19 @@
     <p class="phrase">Saisissez une date de début et de fin pour vos attentions</p>
 
     <div class="inputBox">
-      <ion-item class="inputGroup">
+      <div class="container">
         <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-        <ion-datetime displayFormat="DD/MM/YYYY" [min]="today"  max="2100-12-31" placeholder="01/01/2018" [(ngModel)]="dateBegin"></ion-datetime>
-      </ion-item>
+        <ion-item class="inputGroup">
+          <ion-datetime displayFormat="DD/MM/YYYY" [min]="today"  max="2100-12-31" placeholder="01/01/2018" [(ngModel)]="dateBegin"></ion-datetime>
+        </ion-item>
+      </div>
 
-      <ion-item class="inputGroup">
+      <div class="container">
         <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-        <ion-datetime displayFormat="DD/MM/YYYY" [min]="today" max="2100-12-31" placeholder="01/01/2018" [(ngModel)]="dateEnd"></ion-datetime>
-      </ion-item>
+        <ion-item class="inputGroup">
+          <ion-datetime displayFormat="DD/MM/YYYY" [min]="today" max="2100-12-31" placeholder="01/01/2018" [(ngModel)]="dateEnd"></ion-datetime>
+        </ion-item>
+      </div>
     </div>
 
     <div class="button active" (tap)="showMyCalendarsSend()">Créer calendrier</div>
