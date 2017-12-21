@@ -57,6 +57,11 @@ export class Service implements OnInit{
     return this.http.get(url);
   }
 
+  public createCalendar(calendarName: string, phoneReceiver: string, timeStart: number, timeEnd: number): Observable<any> {
+    const url = `${this.baseUrl}createCalendar/${this.apiKey}/${calendarName}/${phoneReceiver}/${timeStart}/${timeEnd}`;
+    return this.http.get(url);
+  }
+
   public authenticateUser(phone: string, password: string): Promise<any> {
     return this.storage.get("token")
       .then( token => {
@@ -85,14 +90,7 @@ export class Service implements OnInit{
       .catch(error => console.log('Une erreur est survenue : ' + error))
   }
 
-  public createCalendar(calendarName: string, phoneReceiver: string, timeStart: number, timeEnd: number): Promise<any> {
-    const url = `${this.baseUrl}inviteUser/reateCalendar/${this.apiKey}/${calendarName}/${phoneReceiver}/${timeStart}/${timeEnd}`;
 
-    return this.http.get(url)
-      .toPromise() // To have a reply
-      .then(response => response )
-      .catch(error => console.log('Une erreur est survenue : ' + error))
-  }
 
   public setEvent(calendarID: number, eventDate: number, eventNumber: number, attachementID: number): Promise<any> {
     const url = `${this.baseUrl}setEvent/${this.apiKey}/${calendarID}/${eventDate}/${eventNumber}/${attachementID}`;

@@ -41,6 +41,7 @@ export class CalendarCreationTwoPage implements OnInit {
     toast.present();
   }
 
+
   // Move to CalendarCreationThree page
   showCalendarCreationThree() : void {
     const regex = /^0[67][0-9]{8}$/;
