@@ -2,11 +2,11 @@
 import { Injectable, OnInit }   from '@angular/core';
 import { HttpClient }           from '@angular/common/http';
 import { Storage }              from '@ionic/storage';
+import {Observable} from "rxjs/Observable";
 
 // RxJS
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import {Observable} from "rxjs/Observable";
 
 
 
@@ -62,14 +62,9 @@ export class Service implements OnInit{
     return this.http.get(url);
   }
 
-  public authenticateUser(phone: string, password: string): Promise<any> {
-    return this.storage.get("token")
-      .then( token => {
-        const url = `${this.baseUrl}authenticateUser/${phone}/${password}`;
-        return this.http.get(url)
-          .subscribe(data => console.log(JSON.stringify(data)));
-      }
-    )
+  public authenticateUser(phone: string, password: string): Observable<any> {
+    const url = `${this.baseUrl}authenticateUser/${phone}/${password}`;
+    return this.http.get(url);
   }
 
   public inviteUser(phone: string): Promise<any> {
