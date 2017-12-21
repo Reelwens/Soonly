@@ -8,6 +8,7 @@ import { Storage } from "@ionic/storage";
 // Pages
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 import {Service} from "../../services/soonly.service";
+import {MyCalendarsReceivedPage} from "../myCalendarsReceived/myCalendarsReceived";
 
 @Component({
   selector: 'page-calendarCreationThree',
@@ -83,8 +84,11 @@ export class CalendarCreationThreePage implements OnInit {
       this.apiService.createCalendar(this.username, this.phone, this.dateBegin, this.dateEnd).subscribe(
         data => {
           console.log(data);
-          if (data.error !== undefined) {
-            this.validationUpdate("Votre calendrier a bien été créé ! Vous pouvez maintenant créer vos évènements !")
+          if (data.success === true) {
+            this.validationUpdate("Votre calendrier a bien été créé ! Vous pouvez maintenant créer vos évènements !");
+            setTimeout(() => {
+              this.navCtrl.push(MyCalendarsReceivedPage);
+            }, 3000);
           } else {
             this.validationUpdate("Une erreur a eu lieu pendant le traitenement, veuillez réessayer !")
           }
