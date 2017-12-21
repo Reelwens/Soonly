@@ -1,6 +1,6 @@
 <div class="topHeader">
   <img src="assets/imgs/logo-soonly.svg" alt="Image" class="logo">
-  <img src="assets/imgs/settings.svg" alt="Image" class="settings">
+  <img src="assets/imgs/settings.svg" alt="Image" class="settings" (tap)=showInscription()>
 </div>
 
 <div class="mainContent">
@@ -53,7 +53,7 @@
       <p>Envoyés</p>
     </div>
 
-    <div class="menuItem">
+    <div class="menuItem" (tap)="showMemories()">
       <div class="borderLeft"></div>
       <img src="assets/imgs/photo_library.svg" alt="Image">
       <p>Souvenirs</p>

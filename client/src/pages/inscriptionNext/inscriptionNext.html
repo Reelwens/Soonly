@@ -1,0 +1,28 @@
+<img src="assets/imgs/arrow-left-purple.svg" alt="Image" (tap)=showBack() class="backArrow">
+
+<div class="mainContent">
+  <ion-content>
+    <img src="assets/imgs/logo-soonly-purple.svg" alt="Image" class="logo">
+    <p class="title">Quelques questions avant que nous ne commencions…</p>
+
+    <div class="inputGroup">
+      <div class="label">Nom</div>
+      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+      <ion-input type="text" placeholder="Adrien Laurent"></ion-input>
+    </div>
+
+    <div class="inputGroup">
+      <div class="label">N° de téléphone</div>
+      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+      <ion-input type="text" placeholder="06 xx xx xx xx"></ion-input>
+    </div>
+
+    <div class="inputGroup">
+      <div class="label">Mot de passe</div>
+      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+      <ion-input type="password" placeholder="******"></ion-input>
+    </div>
+
+    <div class="button active" (tap)=showMyCalendarsReceived()>Je m'inscris</div>
+  </ion-content>
+</div>

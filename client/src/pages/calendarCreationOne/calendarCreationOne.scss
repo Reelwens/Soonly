@@ -17,6 +17,10 @@ page-calendarcreationone.ion-page, page-calendarcreationtwo.ion-page, page-calen
       color: #a7b6d1;
       font-size: 20px;
       font-weight: 500;
+
+      @media (min-width: 567px) {
+        font-size: 25px;
+      }
     }
 
     .phrase {
@@ -25,11 +29,16 @@ page-calendarcreationone.ion-page, page-calendarcreationtwo.ion-page, page-calen
       width: 90%;
       color: #203c6c;
       font-size: 16px;
+
+      @media (min-width: 567px) {
+        font-size: 18px;
+      }
     }
 
     .inputBox {
       display: flex;
       margin-top: 9vh;
+      justify-content: center;
 
       .inputGroup {
         margin: 0 8px;
@@ -43,6 +52,7 @@ page-calendarcreationone.ion-page, page-calendarcreationtwo.ion-page, page-calen
       width: 70%;
       margin: 0 auto;
       margin-top: 9vh;
+      max-width: 400px;
 
       img {
         width: 20px;
@@ -77,6 +87,7 @@ page-calendarcreationone.ion-page, page-calendarcreationtwo.ion-page, page-calen
       padding: 18px 0;
       text-transform: uppercase;
       transition: all .3s;
+      max-width: 400px;
 
       &.active {
         background-color: #9d77e0;
