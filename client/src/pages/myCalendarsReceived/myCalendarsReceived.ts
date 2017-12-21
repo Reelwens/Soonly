@@ -9,6 +9,7 @@ import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 import { InscriptionPage } from '../inscription/inscription';
+import { MemoriesPage } from '../memories/memories';
 
 @Component({
   selector: 'page-myCalendarsReceived',
@@ -31,6 +32,11 @@ export class MyCalendarsReceivedPage {
     this.navCtrl.push(MyCalendarsSendPage);
   }
 
+  // Move to myCalendarReceived page
+  showMemories(name: string) : void {
+    this.navCtrl.push(MemoriesPage);
+  }
+
   // Move to calendarCreationOne page
   showCalendarCreationOne(name: string) : void {
     this.navCtrl.push(CalendarCreationOnePage);
@@ -39,17 +45,5 @@ export class MyCalendarsReceivedPage {
   // Move to inscription page
   showInscription(name: string) : void {
     this.navCtrl.push(InscriptionPage);
-  }
-
-
-
-  // Print alert
-  alertAction() : void {
-    let alert = this.alertCtrl.create({
-      title: 'Bravo !',
-      subTitle: 'Tu as appuyé sur le bouton !',
-      buttons: ['OK']
-    });
-    alert.present();
   }
 }

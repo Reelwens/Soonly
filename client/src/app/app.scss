@@ -156,6 +156,8 @@ time, mark, audio, video {
       border-bottom: 1px solid #d4d9e8;
       display: flex;
       justify-content: center;
+      overflow-x: auto;
+      overflow-y: hidden;
 
       @media (min-width: 567px) {
         height: 80px;
@@ -167,15 +169,16 @@ time, mark, audio, video {
         flex-direction: column;
         align-items: center;
         height: 100%;
-        padding: 0 23px;
+        padding: 0 5px;
         text-align: center;
+        min-width: 90px;
 
         @media (min-width: 567px) {
           font-size: 16px;
         }
 
         img {
-          margin-top: 14px;
+          margin-top: 12px;
           width: 36px;
           height: 36px;
           border-radius: 100px;
@@ -183,7 +186,7 @@ time, mark, audio, video {
         }
 
         p {
-          margin-top: 1px;
+          margin-top: 3px;
           font-size: 14px;
           font-weight: 500;
           color: #203c6c;

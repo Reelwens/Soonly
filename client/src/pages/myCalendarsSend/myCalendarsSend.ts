@@ -10,6 +10,7 @@ import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 import { CreateBoxPage } from '../createBox/createBox';
+import { MemoriesPage } from '../memories/memories';
 
 @Component({
   selector: 'page-myCalendarsSend',
@@ -37,6 +38,11 @@ export class MyCalendarsSendPage {
     this.navCtrl.push(MyCalendarsReceivedPage);
   }
 
+  // Move to myCalendarReceived page
+  showMemories(name: string) : void {
+    this.navCtrl.push(MemoriesPage);
+  }
+
   // Move to calendarCreationOne page
   showCalendarCreationOne(name: string) : void {
     this.navCtrl.push(CalendarCreationOnePage);
@@ -45,16 +51,5 @@ export class MyCalendarsSendPage {
   // Move to createBox page
   showCreateBox(name: string) : void {
     this.navCtrl.push(CreateBoxPage);
-  }
-
-
-  // Print alert
-  alertAction() : void {
-    let alert = this.alertCtrl.create({
-      title: 'Bravo !',
-      subTitle: 'Tu as appuyé sur le bouton !',
-      buttons: ['OK']
-    });
-    alert.present();
   }
 }
