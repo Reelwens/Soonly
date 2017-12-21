@@ -45,9 +45,4 @@ export class MyCalendarsReceivedPage implements OnInit {
   showCalendarCreationOne(name: string) : void {
     this.navCtrl.push(CalendarCreationOnePage);
   }
-
-  // Move to inscription page
-  showInscription(name: string) : void {
-    this.navCtrl.push(InscriptionPage);
-  }
 }
