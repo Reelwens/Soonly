@@ -1,12 +1,17 @@
 page-memories {
   position: relative;
+  background-color: white;
 
-  &.ion-page .mainContent ion-content .scroll-content {
-    background-color: #f6f9fe;
-    padding: 15px 0 25px 0!important;
+  &.ion-page .mainContent ion-content {
+    height: calc(100vh - 56px - 61px); // Remove header & tabBar
 
-    @media (min-width: 567px) {
-      padding: 25px!important;
+    .scroll-content {
+      background-color: #f6f9fe;
+      padding: 15px 0 25px 0!important;
+
+      @media (min-width: 567px) {
+        padding: 25px!important;
+      }
     }
   }
 
