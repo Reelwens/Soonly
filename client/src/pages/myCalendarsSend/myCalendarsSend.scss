@@ -55,6 +55,7 @@ page-myCalendarsSend .calendarGroup .case {
   align-items: center;
   padding: 30px;
   text-align: center;
+  width: 100%;
 
   h3 {
     color: #a7b6d1;
@@ -71,6 +72,7 @@ page-myCalendarsSend .calendarGroup .case {
 
   img {
     width: 60%;
+    max-width: 240px;
   }
 }
 
