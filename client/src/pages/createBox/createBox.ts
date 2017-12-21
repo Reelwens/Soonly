@@ -10,6 +10,7 @@ import { Base64 } from '@ionic-native/base64';
 
 // Pages
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
+import { CreateMessagePage } from '../createMessage/createMessage';
 
 @Component({
   selector: 'page-createBox',
@@ -35,6 +36,11 @@ export class CreateBoxPage implements OnInit {
   // Move back
   showBack(name: string) : void {
     this.navCtrl.pop();
+  }
+
+  // Move to createMessage page
+  showCreateMessage(name: string) : void {
+    this.navCtrl.push(CreateMessagePage);
   }
 
   // Open audio

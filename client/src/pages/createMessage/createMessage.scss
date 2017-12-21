@@ -1,0 +1,47 @@
+page-createmessage.ion-page {
+
+
+  .content {
+    height: 100%;
+  }
+
+  .mainContent {
+    height: calc(100vh - 56px);
+
+    form {
+      width: 100%;
+      height: 100%;
+
+      textarea {
+        width: 100%;
+        height: 100%;
+        border: none;
+        color: #203c6c;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+      }
+
+      .button {
+        position: fixed;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        background-color: #a7b6d1;
+        color: white;
+        font-size: 16px;
+        border-radius: 6px;
+        box-shadow: 0 2px 15px 0 rgba(157, 119, 224, 0.4);
+        padding: 18px 0;
+        text-transform: uppercase;
+        transition: all .3s;
+        max-width: 400px;
+
+        &.active {
+          background-color: #9d77e0;
+        }
+      }
+    }
+  }
+}

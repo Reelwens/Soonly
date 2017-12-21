@@ -14,6 +14,7 @@ import { CalendarCreationOnePage } from '../pages/calendarCreationOne/calendarCr
 import { CalendarCreationTwoPage } from '../pages/calendarCreationTwo/calendarCreationTwo';
 import { CalendarCreationThreePage } from '../pages/calendarCreationThree/calendarCreationThree';
 import { CreateBoxPage } from '../pages/createBox/createBox';
+import { CreateMessagePage } from '../pages/createMessage/createMessage';
 import { InscriptionPage } from '../pages/inscription/inscription';
 import { InscriptionNextPage } from '../pages/inscriptionNext/inscriptionNext';
 import { MemoriesPage } from '../pages/memories/memories';
@@ -32,6 +33,7 @@ import {IonicStorageModule} from "@ionic/storage";
     CalendarCreationTwoPage,
     CalendarCreationThreePage,
     CreateBoxPage,
+    CreateMessagePage,
     InscriptionPage,
     InscriptionNextPage,
     MemoriesPage
@@ -52,6 +54,7 @@ import {IonicStorageModule} from "@ionic/storage";
     CalendarCreationTwoPage,
     CalendarCreationThreePage,
     CreateBoxPage,
+    CreateMessagePage,
     InscriptionPage,
     InscriptionNextPage,
     MemoriesPage
