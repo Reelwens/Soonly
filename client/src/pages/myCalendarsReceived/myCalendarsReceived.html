@@ -61,7 +61,7 @@
   </div>
 </div>
 
-<div class="noBoxContent">
+<div class="noBoxContent" [ngClass]="{'noBox': calendars == null}">
   <img src="assets/imgs/illu4.png" alt="Image">
   <h3>Aucun calendrier en vue</h3>
   <p>Parlez de l'application à vos proches et demandez-leur de créer un calendrier</p>
