@@ -5,24 +5,31 @@
     <img src="assets/imgs/logo-soonly-purple.svg" alt="Image" class="logo">
     <p class="title">Quelques questions avant que nous ne commencions…</p>
 
-    <div class="inputGroup">
-      <div class="label">Nom</div>
-      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-      <ion-input type="text" placeholder="Adrien Laurent"></ion-input>
-    </div>
+    <form (ngSubmit)="logForm()">
+      <div class="container">
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-item class="inputGroup">
+          <ion-label class="label">Nom</ion-label>
+          <ion-input type="text" placeholder="Adrien Laurent"></ion-input>
+        </ion-item>
+      </div>
 
-    <div class="inputGroup">
-      <div class="label">N° de téléphone</div>
-      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-      <ion-input type="text" placeholder="06 xx xx xx xx"></ion-input>
-    </div>
+      <div class="container">
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-item class="inputGroup">
+          <ion-label class="label">N° de téléphone</ion-label>
+          <ion-input type="text" placeholder="0x xx xx xx xx"></ion-input>
+        </ion-item>
+      </div>
 
-    <div class="inputGroup">
-      <div class="label">Mot de passe</div>
-      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-      <ion-input type="password" placeholder="******"></ion-input>
-    </div>
-
-    <div class="button active" (tap)=showMyCalendarsReceived()>Je m'inscris</div>
+      <div class="container">
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-item class="inputGroup">
+          <ion-label class="label">Mot de passe</ion-label>
+          <ion-input type="password" placeholder="******"></ion-input>
+        </ion-item>
+      </div>
+      <button ion-button type="submit" class="button active">Je m'inscris</button>
+    </form>
   </ion-content>
 </div>

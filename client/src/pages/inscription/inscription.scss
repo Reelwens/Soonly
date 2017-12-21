@@ -1,4 +1,22 @@
 page-inscription.ion-page, page-inscriptionnext.ion-page {
+  // Reset form ionic
+  form {
+    overflow: visible;
+
+    ion-item {
+      overflow: visible;
+
+      .item-inner {
+        overflow: visible;
+        border: none!important;
+        box-shadow: none!important;
+
+        .input-wrapper {
+          overflow: visible;
+        }
+      }
+    }
+  }
   .backArrow {
     width: 60px;
     height: 60px;
@@ -52,26 +70,35 @@ page-inscription.ion-page, page-inscriptionnext.ion-page {
       }
     }
 
+    .container {
+      position: relative;
+      width: 70%;
+      margin: 0 auto;
+      max-width: 400px;
+
+      img.arrowRight {
+        width: 20px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translate(5px, -9px);
+      }
+    }
+
     .inputGroup {
       position: relative;
       border-bottom: 2px solid #9B76DA;
       display: flex;
-      height: 45px;
-      width: 70%;
-      max-width: 400px;
-      margin: 0 auto;
-      margin-top: 7vh;
+      padding-top: 30px;
+      height: 75px;
+      margin-top: 3vh;
 
       .label {
         color: #203c6c;
         font-size: 16px;
         font-weight: 500;
         position: absolute;
-        transform: translateY(-17px);
-      }
-
-      img {
-        width: 20px;
+        transform: translate(-12px, -40px);
       }
 
       ion-input {
@@ -83,6 +110,7 @@ page-inscription.ion-page, page-inscriptionnext.ion-page {
 
         input {
           transform: none!important;
+          margin-left: 20px;
         }
 
         &::placeholder {
@@ -100,7 +128,7 @@ page-inscription.ion-page, page-inscriptionnext.ion-page {
       font-size: 16px;
       border-radius: 6px;
       box-shadow: 0 2px 15px 0 rgba(157, 119, 224, 0.4);
-      padding: 18px 0;
+      padding: 26px 0;
       text-transform: uppercase;
       transition: all .3s;
       max-width: 400px;
