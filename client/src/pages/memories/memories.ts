@@ -24,11 +24,11 @@ export class MemoriesPage implements OnInit {
 
   // Move to myCalendarSend page
   showMyCalendarsSend(name: string) : void {
-    this.navCtrl.push(MyCalendarsSendPage);
+    this.navCtrl.push(MyCalendarsSendPage,{},{animate:false});
   }
 
   // Move to myCalendarReceived page
   showMyCalendarsReceived(name: string) : void {
-    this.navCtrl.push(MyCalendarsReceivedPage);
+    this.navCtrl.push(MyCalendarsReceivedPage,{},{animate:false});
   }
 }

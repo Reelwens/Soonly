@@ -1,6 +1,6 @@
 page-myCalendarsSend .calendarGroup .case {
   background-color: white;
-  
+
   &.add .content .info {
     display: block;
     color: #203c6c;
@@ -55,6 +55,7 @@ page-myCalendarsSend .calendarGroup .case {
   align-items: center;
   padding: 30px;
   text-align: center;
+  width: 100%;
 
   h3 {
     color: #a7b6d1;
@@ -71,10 +72,11 @@ page-myCalendarsSend .calendarGroup .case {
 
   img {
     width: 60%;
+    max-width: 240px;
   }
 }
 
-page-myCalendarsSend {
+page-myCalendarsSend, page-myCalendarsReceived {
   .noBox.mainContent {
     display: none;
   }
