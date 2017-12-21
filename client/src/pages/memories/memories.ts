@@ -16,7 +16,7 @@ import {Service} from "../../services/soonly.service";
   templateUrl: 'memories.html'
 })
 export class MemoriesPage implements OnInit {
-
+  memories: any;
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
               public storage: Storage,
@@ -30,7 +30,9 @@ export class MemoriesPage implements OnInit {
         this.apiService.setApiKey(key);
         this.apiService.getMemories().subscribe(
           data => {
+            component.memories = data.memories;
             console.log(data);
+
           }
         )
       }

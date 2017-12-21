@@ -40,26 +40,26 @@ class GetAllMemoriesController extends Controller {
 				{
 					case "ApiBundle\\Entity\\MessageAttachement":
 						/** @var MessageAttachement $attachement */
-						$data[$key]["type"]    = "message";
-						$data[$key]["message"] = $attachement->getMessage();
-						$data[$key]["theme"]   = $attachement->getTheme();
+						$data["memories"][$key]["type"]    = "message";
+						$data["memories"][$key]["message"] = $attachement->getMessage();
+						$data["memories"][$key]["theme"]   = $attachement->getTheme();
 						break;
 					case "ApiBundle\\Entity\\ImageAttachement":
 						/** @var ImageAttachement $attachement */
-						$data[$key]["type"]    = "image";
-						$data[$key]["base64"] = $attachement->getBase64();
+						$data["memories"][$key]["type"]    = "image";
+						$data["memories"][$key]["base64"] = $attachement->getBase64();
 						break;
 					case "ApiBundle\\Entity\\VideoAttachement":
 						/** @var VideoAttachement $attachement */
-						$data[$key]["type"]    = "video";
-						$data[$key]["url"] = $attachement->getVideo();
+						$data["memories"][$key]["type"]    = "video";
+						$data["memories"][$key]["url"] = $attachement->getVideo();
 						break;
 				}
 			}
 			$data["success"] = true;
 		}
 		
-		return new JsonResponse($data);
+		return new JsonResponse($data, 200, ["Access-Control-Allow-Origin" => "*"]);
 	}
 	
 }

@@ -3,81 +3,19 @@
   <img src="assets/imgs/settings.svg" alt="Image" class="settings" (tap)=showInscription()>
 </div>
 
-<div class="mainContent">
+<div class="mainContent" [ngClass]="{'noBox': memories == undefined}">
   <div class="subHeader">
-    <div class="user active">
-      <img src="assets/imgs/person.svg" alt="Image">
-      <p>Tous</p>
-      <div class="selectMark"></div>
-    </div>
     <div class="user">
-      <img src="assets/imgs/person.svg" alt="Image">
-      <p>Louis</p>
-      <div class="selectMark"></div>
-    </div>
-    <div class="user">
-      <img src="assets/imgs/person.svg" alt="Image">
-      <p>Papy Jacky</p>
-      <div class="selectMark"></div>
+      <h1>Souvenirs</h1>
     </div>
   </div>
-
   <ion-content>
-    <div class="memoriesGroup">
-      <div class="memories video">
-        <img src="http://i.rlws.fr/522be86.png " alt="Image" class="content">
+    <div class="memoriesGroup" [ngClass]="{'noBox': memories == undefined}">
+      <div class="memories" *ngFor="let memory of memories" [ngClass]="{'text': memory.type === 'message', 'video': memory.type === 'video', 'image': memory.type === 'image'}">
+        <img *ngIf="memory.type === 'image'" src="{{ memory.base64 }}">
         <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
         <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase"></p>
-      </div>
-
-      <div class="memories image">
-        <img src="http://i.reelwens.fr/83bd9da.png" alt="Image" class="content">
-        <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
-        <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase"></p>
-      </div>
-
-      <div class="memories text">
-        <img src="" alt="Image" class="content">
-        <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
-        <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase">Coucou Mamie comment ça va ? 😄je suis très impatient de te revoir blabla</p>
-      </div>
-
-      <div class="memories image">
-        <img src="http://i.rlws.fr/522be86.png" alt="Image" class="content">
-        <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
-        <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase"></p>
-      </div>
-
-      <div class="memories image">
-        <img src="http://i.rlws.fr/522be86.png" alt="Image" class="content">
-        <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
-        <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase"></p>
-      </div>
-
-      <div class="memories image">
-        <img src="http://i.rlws.fr/522be86.png" alt="Image" class="content">
-        <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
-        <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase"></p>
-      </div>
-
-      <div class="memories image">
-        <img src="http://i.rlws.fr/522be86.png" alt="Image" class="content">
-        <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
-        <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase"></p>
-      </div>
-
-      <div class="memories image">
-        <img src="http://i.rlws.fr/522be86.png" alt="Image" class="content">
-        <img src="assets/imgs/play.svg" alt="Image" class="playIcon">
-        <img src="assets/imgs/quote.svg" alt="Image" class="quote">
-        <p class="phrase"></p>
+        <p class="phrase">{{ memory.message}}</p>
       </div>
     </div>
   </ion-content>
@@ -109,7 +47,7 @@
   </div>
 </div>
 
-<div class="noBoxContent">
+<div class="noBoxContent" [ngClass]="{'noBox': memories == undefined}">
   <img src="assets/imgs/illu4.png" alt="Image">
   <h3>Aucun souvenir en vue</h3>
   <p>Vos premiers souvenirs apparaîtront à la fin de votre premier calendrier</p>
