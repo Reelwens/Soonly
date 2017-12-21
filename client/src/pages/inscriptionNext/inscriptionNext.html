@@ -4,25 +4,25 @@
   <ion-content>
     <img src="assets/imgs/logo-soonly-purple.svg" alt="Image" class="logo">
     <p class="title">Quelques questions avant que nous ne commencions…</p>
+    <form (ngSubmit)="validateForm()">
+      <ion-item class="inputGroup">
+        <ion-label class="label">Un petit nom</ion-label>
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-input type="text" placeholder="Adrien Laurent" [(ngModel)]="user.name" name="name"></ion-input>
+      </ion-item>
 
-    <div class="inputGroup">
-      <div class="label">Nom</div>
-      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-      <ion-input type="text" placeholder="Adrien Laurent"></ion-input>
-    </div>
+      <ion-item class="inputGroup">
+        <ion-label class="label">Un numéro de téléphone</ion-label>
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-input type="phone" placeholder="0x xx xx xx xx" [(ngModel)]="user.phone" name="phone" pattern="/0[67][0-9]{8}/"></ion-input>
+      </ion-item>
 
-    <div class="inputGroup">
-      <div class="label">N° de téléphone</div>
-      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-      <ion-input type="text" placeholder="06 xx xx xx xx"></ion-input>
-    </div>
-
-    <div class="inputGroup">
-      <div class="label">Mot de passe</div>
-      <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
-      <ion-input type="password" placeholder="******"></ion-input>
-    </div>
-
-    <div class="button active" (tap)=showMyCalendarsReceived()>Je m'inscris</div>
+      <ion-item class="inputGroup">
+        <ion-label class="label">Votre mot de passe</ion-label>
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-input type="password" placeholder="******" [(ngModel)]="user.password" name="password"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" class="button active">Je m'inscrit !</button>
+    </form>
   </ion-content>
 </div>

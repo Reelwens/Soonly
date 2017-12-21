@@ -15,7 +15,6 @@ import { MemoriesPage } from '../memories/memories';
 @Component({
   selector: 'page-myCalendarsReceived',
   templateUrl: 'myCalendarsReceived.html'
-
 })
 export class MyCalendarsReceivedPage implements OnInit {
 
@@ -36,22 +35,29 @@ export class MyCalendarsReceivedPage implements OnInit {
   ngOnInit(): void {
     const component = this;
     this.storage.get("token").then( key => {
-      this.apiService.setApiKey( key );
-      this.apiService.getEvents().subscribe(
-      data => {
-          if ( this.calendarid === undefined ) {
-            component.events = data.calendarsReceiver[Object.keys( data.calendarsReceiver )[0]];
-            component.calendarid = Object.keys( data.calendars )[0];
-          } else {
-            component.events = data.calendarsReceiver[component.calendarid];
+      if (key !== null) {
+        this.apiService.setApiKey( key );
+        this.apiService.getEvents().subscribe(
+          data => {
+            if (data.calendarsReceiver != null ){
+              if ( this.calendarid === undefined ) {
+                component.events = data.calendarsReceiver[Object.keys( data.calendarsReceiver )[0]];
+                component.calendarid = Object.keys( data.calendars )[0];
+              } else {
+                component.events = data.calendarsReceiver[component.calendarid];
+              }
+            }
           }
-        }
-      );
-      this.apiService.getCalendars().subscribe(
-        data => {
-          this.calendars = data.calendarsReceiver;
-        }
-      );
+        );
+        this.apiService.getCalendars().subscribe(
+          data => {
+            this.calendars = data.calendarsReceiver;
+          }
+        );
+      } else {
+        this.showInscription();
+      }
+
     });
 
   }
@@ -79,7 +85,7 @@ export class MyCalendarsReceivedPage implements OnInit {
   }
 
   // Move to inscription page
-  showInscription(name: string) : void {
+  showInscription() : void {
     this.navCtrl.push(InscriptionPage);
   }
 

@@ -3,7 +3,7 @@
   <img src="assets/imgs/settings.svg" alt="Image" class="settings" (tap)=showInscription()>
 </div>
 
-<div class="mainContent">
+<div class="mainContent" [ngClass]="{'noBox': calendars == null}">
   <div class="subHeader">
     <div *ngFor="let calendar of calendars; let isFirst = first" class="user"
          [ngClass]="{'active': ((isFirst && calendarid===undefined) || (calendarid == calendar.id)) }"
@@ -16,7 +16,7 @@
 
 
   <ion-content>
-    <div class="calendarGroup">
+    <div class="calendarGroup" >
       <div *ngFor="let event of events" class="case" [ngClass]="{'add': event.id===-1, 'fill': event.id!==-1, 'open': event.viewed, 'discover': event.discover}">
         <div class="content">
           <p class="dayLeft">J-{{ event.dayLeft }}</p>

@@ -12,6 +12,7 @@ import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsRecei
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 import { CreateBoxPage } from '../createBox/createBox';
 import { MemoriesPage } from '../memories/memories';
+import {InscriptionPage} from "../inscription/inscription";
 
 @Component({
   selector: 'page-myCalendarsSend',
@@ -37,21 +38,28 @@ export class MyCalendarsSendPage implements OnInit {
     const component = this;
     this.storage.get("token").then( key => {
       this.apiService.setApiKey( key );
-      this.apiService.getEvents().subscribe(
-        data => {
-          if ( this.calendarid === undefined ) {
-            component.events = data.calendars[Object.keys( data.calendars )[0]];
-            component.calendarid = Object.keys( data.calendars )[0];
-          } else {
-            component.events = data.calendars[component.calendarid];
+      if (key !== null) {
+        this.apiService.setApiKey( key );
+        this.apiService.getEvents().subscribe(
+          data => {
+            if (data.calendars != null ){
+              if ( this.calendarid === undefined ) {
+                component.events = data.calendars[Object.keys( data.calendars )[0]];
+                component.calendarid = Object.keys( data.calendars )[0];
+              } else {
+                component.events = data.calendars[component.calendarid];
+              }
+            }
           }
-        }
-      );
-      this.apiService.getCalendars().subscribe(
-        data => {
-          component.calendars = data.calendars;
-        }
-      );
+        );
+        this.apiService.getCalendars().subscribe(
+          data => {
+            this.calendars = data.calendars;
+          }
+        );
+      } else {
+        this.showInscription();
+      }
     });
   }
   // Send data to calendar page
@@ -85,6 +93,11 @@ export class MyCalendarsSendPage implements OnInit {
     this.navCtrl.push(MyCalendarsSendPage, {
       calendar: id
     });
+  }
+
+  // Move to inscription page
+  showInscription() : void {
+    this.navCtrl.push(InscriptionPage);
   }
 
 

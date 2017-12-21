@@ -6,6 +6,7 @@ import { Storage }              from '@ionic/storage';
 // RxJS
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import {Observable} from "rxjs/Observable";
 
 
 
@@ -51,14 +52,9 @@ export class Service implements OnInit{
     return this.http.get(url);
   }
 
-  public createUser(phone: string, surname: string, password: string): Promise<any> {
-    return this.storage.get("token")
-      .then( token => {
-        const url = `${this.baseUrl}listCalendars/${phone}/${surname}/${password}`;
-        return this.http.get(url)
-          .subscribe(data => console.log(JSON.stringify(data)));
-      }
-    )
+  public createUser(phone: string, surname: string, password: string): Observable<any> {
+    const url = `${this.baseUrl}createUser/${phone}/${surname}/${password}`;
+    return this.http.get(url);
   }
 
   public authenticateUser(phone: string, password: string): Promise<any> {
