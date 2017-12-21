@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions, CaptureAudioOptions } from '@ionic-native/media-capture';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions, CaptureVideoOptions } from '@ionic-native/media-capture';
 import { Camera } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
 
@@ -21,13 +21,10 @@ export class CreateBoxPage implements OnInit {
 
   // variables
   username: string;
-  mCapture: MediaCapture;
-  b64: Base64;
-  test: MediaCapture;
+  video: MediaFile;
+  test: string = '';
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public mediaCapture: MediaCapture, public base64: Base64, public storage: Storage) {
-    this.mCapture = mediaCapture;
-    this.b64 = base64;
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public mediaCapture: MediaCapture, public base64: Base64, public storage: Storage) {
   }
 
   ngOnInit(): void {
@@ -44,10 +41,10 @@ export class CreateBoxPage implements OnInit {
   }
 
   // Open audio
-  openAudio() : void {
-    this.mCapture.captureAudio()
+  openVideo() : void {
+    this.mediaCapture.captureVideo()
       .then(
-        (data: MediaFile[]) => this.test,
+        (data: MediaFile[]) => this.validVideo(data),
         (err: CaptureError) => console.error(err)
       );
   }
@@ -55,7 +52,7 @@ export class CreateBoxPage implements OnInit {
   // Open camera photo
   openCamera() : void {
     let options: CaptureImageOptions = { limit: 1 };
-    this.mCapture.captureImage(options)
+    this.mediaCapture.captureImage(options)
       .then(
         (data: MediaFile[]) => this.validImage(data),
         (err: CaptureError) => console.error(err)
@@ -63,8 +60,8 @@ export class CreateBoxPage implements OnInit {
   }
 
   // Create base64File variable (picture taken in base64)
-  validImage(medias : MediaFile[]) : void {
-    this.b64.encodeFile(medias[0].fullPath).then((base64File: string) => {
+  private validImage(medias : MediaFile[]) : void {
+    this.base64.encodeFile(medias[0].fullPath).then((base64File: string) => {
       this.navCtrl.push(MyCalendarsSendPage, {
         img: medias[0].fullPath,
         base64: base64File
@@ -72,5 +69,12 @@ export class CreateBoxPage implements OnInit {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  // Redirect on new page
+  private validVideo(medias : MediaFile[]) : void {
+      this.navCtrl.push(MyCalendarsSendPage, {
+        video: medias[0].fullPath
+      });
   }
 }
