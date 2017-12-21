@@ -72,12 +72,12 @@ page-myCalendarsSend .calendarGroup .case {
   }
 }
 
-page-myCalendarsSend.noBox {
-  .mainContent {
+page-myCalendarsSend {
+  .noBox.mainContent {
     display: none;
   }
 
-  .noBoxContent {
+  .noBox.noBoxContent {
     display: flex;
   }
 }
