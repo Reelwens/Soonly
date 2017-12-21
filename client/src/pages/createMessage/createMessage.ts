@@ -9,7 +9,6 @@ import { Base64 } from '@ionic-native/base64';
 //import { Service } from '../../services/soonly.service';
 
 // Pages
-import { CreateBoxPage } from '../createBox/createBox';
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 
 @Component({

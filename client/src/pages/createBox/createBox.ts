@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions, CaptureAudioOptions } from '@ionic-native/media-capture';
 import { Camera } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
 

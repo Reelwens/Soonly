@@ -9,7 +9,6 @@ import { Storage } from "@ionic/storage";
 import { CalendarPage } from '../calendar/calendar';
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
-import { InscriptionPage } from '../inscription/inscription';
 import { MemoriesPage } from '../memories/memories';
 
 @Component({

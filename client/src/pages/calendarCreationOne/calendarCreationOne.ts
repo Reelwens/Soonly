@@ -6,8 +6,6 @@ import { Storage } from "@ionic/storage";
 //import { Service } from '../../services/soonly.service';
 
 // Pages
-import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
-import { MyCalendarsReceivedPage } from '../myCalendarsReceived/myCalendarsReceived';
 import { CalendarCreationTwoPage } from '../calendarCreationTwo/calendarCreationTwo';
 
 @Component({
