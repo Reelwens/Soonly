@@ -33,12 +33,12 @@ export class MyCalendarsReceivedPage implements OnInit {
 
   // Move to myCalendarSend page
   showMyCalendarsSend(name: string) : void {
-    this.navCtrl.push(MyCalendarsSendPage);
+    this.navCtrl.push(MyCalendarsSendPage,{},{animate:false});
   }
 
   // Move to myCalendarReceived page
   showMemories(name: string) : void {
-    this.navCtrl.push(MemoriesPage);
+    this.navCtrl.push(MemoriesPage,{},{animate:false});
   }
 
   // Move to calendarCreationOne page
