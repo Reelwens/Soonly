@@ -7,7 +7,6 @@ import { Storage } from "@ionic/storage";
 //import { Service } from '../../services/soonly.service';
 
 // Pages
-import { OpenSurprisePage } from '../openSurprise/openSurprise';
 
 @Component({
   selector: 'page-openSurprise',
