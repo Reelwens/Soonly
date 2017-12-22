@@ -9,8 +9,8 @@
       <div class="container">
         <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
         <ion-item class="inputGroup">
-          <ion-label class="label">Nom</ion-label>
-          <ion-input type="text" placeholder="Adrien Laurent" [(ngModel)]="user.name" name="name"></ion-input>
+          <ion-label class="label">N° de téléphone</ion-label>
+          <ion-input type="phone" placeholder="0x xx xx xx xx" [(ngModel)]="user.phone" name="phone" pattern="/0[67][0-9]{8}/"></ion-input>
         </ion-item>
       </div>
 
