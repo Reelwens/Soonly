@@ -20,7 +20,7 @@ import { CreateMessagePage } from '../createMessage/createMessage';
 export class CreateBoxPage implements OnInit {
 
   // variables
-  username: string;
+  name:     string;
   calendar: any;
   date:     string;
   video:    MediaFile;
@@ -32,9 +32,11 @@ export class CreateBoxPage implements OnInit {
               public mediaCapture: MediaCapture,
               public base64: Base64,
               public storage: Storage,
+
               public apiService: Service) {
     this.calendar = navParams.get('calendar');
     this.date = navParams.get('date');
+    this.name = navParams.get('name');
   }
 
   ngOnInit(): void {
@@ -46,10 +48,11 @@ export class CreateBoxPage implements OnInit {
   }
 
   // Move to createMessage page
-  showCreateMessage(calendar: any, date:string) : void {
+  showCreateMessage() : void {
+
     this.navCtrl.push(CreateMessagePage, {
-      calendar: calendar,
-      date: date
+      calendar: this.calendar,
+      date: this.date
     });
   }
 
