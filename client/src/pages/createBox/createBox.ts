@@ -6,7 +6,7 @@ import { Camera } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
 
 // API
-//import { Service } from '../../services/soonly.service';
+import { Service } from '../../services/soonly.service';
 
 // Pages
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
@@ -31,7 +31,8 @@ export class CreateBoxPage implements OnInit {
               public navParams: NavParams,
               public mediaCapture: MediaCapture,
               public base64: Base64,
-              public storage: Storage) {
+              public storage: Storage,
+              public apiService: Service) {
     this.calendar = navParams.get('calendar');
     this.date = navParams.get('date');
   }
@@ -74,10 +75,12 @@ export class CreateBoxPage implements OnInit {
   // Create base64File variable (picture taken in base64)
   private validImage(medias : MediaFile[]) : void {
     this.base64.encodeFile(medias[0].fullPath).then((base64File: string) => {
-      this.navCtrl.push(MyCalendarsSendPage, {
-        img: medias[0].fullPath,
-        base64: base64File
-      });
+      this.storage.get("token").then( key => {
+        this.apiService.setApiKey( key );
+        this.apiService.createImageAttachement(base64File).subscribe(data => {
+          console.log(data)
+        })
+      })
     }, (err) => {
       console.log(err);
     });

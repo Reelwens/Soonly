@@ -91,16 +91,13 @@ export class Service implements OnInit{
       .catch(error => console.log('Une erreur est survenue : ' + error))
   }
 
-  public createImageAttachement(theme: number, image: string): Promise<any> {
+  public createImageAttachement(image: string): Observable<any> {
     const url = `${this.baseUrl}createImageAttachement/${this.apiKey}`;
     let postParams = {
       image: image
     };
 
-    return this.http.post(url, postParams)
-      .toPromise()
-      .then(response => response)
-      .catch(error => console.log('Une erreur est survenue : ' + error))// Error getting the data
+    return this.http.post(url, postParams);
   }
 
 
