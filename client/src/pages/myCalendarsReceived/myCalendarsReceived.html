@@ -14,7 +14,10 @@
     </div>
   </div>
 
-
+<!--
+.open : Case ouverte
+.discover : "Ouvrez vite" Case non ouverte et ouvrable
+-->
   <ion-content>
     <div class="calendarGroup" >
       <div *ngFor="let event of events" class="case" [ngClass]="{'add': event.id===-1, 'fill': event.id!==-1, 'open': event.viewed, 'discover': event.discover}">
