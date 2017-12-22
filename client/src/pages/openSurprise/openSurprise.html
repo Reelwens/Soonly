@@ -5,9 +5,9 @@
 
 <div class="mainContent">
   <ion-content>
-    <div class="content message"> <!-- Utiliser .message OU .image -->
-      <img src="http://i.rlws.fr/0da2bfc.png" alt="Image">
-      <div class="text">Coucou Papy ! J'espère que tu vas bien, tu sais que tu me manque beaucou. On se revoi biento jai hatte !!! 😍</div>
+    <div class="content" [ngClass]="{'message': type === 'message', 'image': type === 'image', 'video': type === 'video'}"> <!-- Utiliser .message OU .image -->
+      <img src="{{ base64 }}" alt="Image">
+      <div class="text">{{ message }}</div>
     </div>
   </ion-content>
 </div>

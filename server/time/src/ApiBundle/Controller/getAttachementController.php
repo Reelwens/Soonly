@@ -35,7 +35,7 @@ class getAttachementController extends Controller {
 			
 			$data["attachement"] = [
 				"type_raw"  => ClassUtils::getClass($attachement),
-				"id"    => $attachement->getId()
+				"id"        => $attachement->getId()
 			];
 			
 			switch (ClassUtils::getClass($attachement))
@@ -58,6 +58,8 @@ class getAttachementController extends Controller {
 					break;
 					
 			}
+			$data["success"] = true;
+			$data["exists"] = true;
 		}
 		
 		 return new JsonResponse($data, 200, ["Access-Control-Allow-Origin" => "*"]);

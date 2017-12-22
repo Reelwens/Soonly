@@ -94,4 +94,8 @@ export class Service implements OnInit{
   }
 
 
+  public getAttachement(event): Observable<any> {
+    const url = `${this.baseUrl}getAttachement/${this.apiKey}/${event}`;
+    return this.http.get( url );
+  }
 }

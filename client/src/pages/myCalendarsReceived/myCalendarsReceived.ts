@@ -76,12 +76,14 @@ export class MyCalendarsReceivedPage implements OnInit {
   }
 
   // Move to openSurprise page
-  showOpenSurprise(name: string) : void {
-    this.navCtrl.push(OpenSurprisePage);
+  showOpenSurprise(event: any) : void {
+    this.navCtrl.push(OpenSurprisePage, {
+      event: event
+    });
   }
 
   // Move to myCalendarReceived page
-  showMemories(name: string) : void {
+  showMemories() : void {
     this.navCtrl.push(MemoriesPage,{},{animate:false});
   }
 
