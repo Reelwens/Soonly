@@ -29,9 +29,9 @@
         <div class="content">
           <p class="dayLeft">J-{{ event.dayLeft }}</p>
           <p class="dayNumber">{{ event.dayNumber }}</p>
-          <p class="info" *ngIf="event.id===-1">Peut-être une surprise ? </p>
-          <p class="info" *ngIf="event.viewed">Vu !</p>
-          <p class="info" *ngIf="!event.viewed && event.discover || event.toBeSeen">Ouvrez vite !</p>
+          <p class="info" *ngIf="event.id===-1"></p>
+          <p class="info" *ngIf="event.viewed">Ouvert</p>
+          <p class="info" *ngIf="!event.viewed && event.discover || event.toBeSeen">Ouvrez vite</p>
         </div>
         <div class="mask"></div>
         <div class="mask2"></div>

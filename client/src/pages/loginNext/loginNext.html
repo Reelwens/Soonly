@@ -1,0 +1,28 @@
+<img src="assets/imgs/arrow-left-purple.svg" alt="Image" (tap)=showBack() class="backArrow">
+
+<div class="mainContent">
+  <ion-content>
+    <img src="assets/imgs/logo-soonly-purple.svg" alt="Image" class="logo">
+    <p class="title">Qui êtes-vous…?</p>
+
+    <form (ngSubmit)="validateForm()">
+      <div class="container">
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-item class="inputGroup">
+          <ion-label class="label">N° de téléphone</ion-label>
+          <ion-input type="phone" placeholder="0x xx xx xx xx" [(ngModel)]="user.phone" name="phone" pattern="/0[67][0-9]{8}/"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="container">
+        <img src="assets/imgs/arrow-right.svg" alt="Image" class="arrowRight">
+        <ion-item class="inputGroup">
+          <ion-label class="label">Mot de passe</ion-label>
+          <ion-input type="password" placeholder="******" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
+      </div>
+      <button ion-button type="submit" class="button active">Connexion</button>
+    </form>
+
+  </ion-content>
+</div>

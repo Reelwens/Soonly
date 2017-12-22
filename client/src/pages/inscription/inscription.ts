@@ -7,6 +7,7 @@ import { Storage} from "@ionic/storage";
 
 // Pages
 import { InscriptionNextPage } from '../inscriptionNext/inscriptionNext';
+import { LoginNextPage } from '../loginNext/loginNext';
 
 @Component({
   selector: 'page-inscription',
@@ -25,5 +26,10 @@ export class InscriptionPage implements OnInit{
   //Move to inscriptionNext page & send data
   showInscriptionNext() : void {
     this.navCtrl.push(InscriptionNextPage);
+  }
+
+  //Move to loginNext page & send data
+  showLoginNext() : void {
+    this.navCtrl.push(LoginNextPage);
   }
 }
