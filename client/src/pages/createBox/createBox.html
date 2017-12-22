@@ -11,14 +11,9 @@
     <p class="question">Que souhaitez-vous envoyer ?</p>
 
     <div class="sendElements">
-      <div class="sendElement half" (tap)=openCamera()>
+      <div class="sendElement" (tap)=openCamera()>
         <img src="assets/imgs/camera.svg" alt="Image">
         <p>Photo</p>
-      </div>
-
-      <div class="sendElement half" (tap)=openVideo()>
-        <img src="assets/imgs/video.svg" alt="Image">
-        <p>Vidéo</p>
       </div>
 
       <div class="sendElement" (tap)="showCreateMessage()">
