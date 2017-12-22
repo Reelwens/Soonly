@@ -85,7 +85,7 @@ export class CreateMessagePage implements OnInit {
             let attachement = data.message.id;
             this.apiService.setEvent(this.calendar, this.date, 1, attachement).subscribe(
               data2 => {
-                if (data2.error === undefined) {
+                if (data2.success === true) {
                   this.validationUpdate("Votre évènement a bien été créé");
                   setTimeout(() => {
                     this.showMyCalendarsSend();
