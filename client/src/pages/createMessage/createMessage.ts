@@ -100,7 +100,6 @@ export class CreateMessagePage implements OnInit {
       })
     }
   }
-
   // Move to myCalendarSend page
   showMyCalendarsSend() : void {
     this.navCtrl.push(MyCalendarsSendPage);

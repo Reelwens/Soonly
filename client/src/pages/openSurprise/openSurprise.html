@@ -6,7 +6,7 @@
 <div class="mainContent">
   <ion-content>
     <div class="content" [ngClass]="{'message': type === 'message', 'image': type === 'image', 'video': type === 'video'}"> <!-- Utiliser .message OU .image -->
-      <img src="{{ base64 }}" alt="Image">
+      <img [src]="domSanitizer.bypassSecurityTrustUrl(base64)" alt="Image">
       <div class="text">{{ message }}</div>
     </div>
   </ion-content>

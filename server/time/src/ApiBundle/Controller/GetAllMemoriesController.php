@@ -36,7 +36,8 @@ class GetAllMemoriesController extends Controller {
 			
 			/** @var Event $memory */
 			foreach ($allMemories as $key => $memory) {
-				switch (ClassUtils::getClass($memory->getAttachement()))
+				$attachement = $memory->getAttachement();
+				switch (ClassUtils::getClass($attachement))
 				{
 					case "ApiBundle\\Entity\\MessageAttachement":
 						/** @var MessageAttachement $attachement */
@@ -47,12 +48,12 @@ class GetAllMemoriesController extends Controller {
 					case "ApiBundle\\Entity\\ImageAttachement":
 						/** @var ImageAttachement $attachement */
 						$data["memories"][$key]["type"]    = "image";
-						$data["memories"][$key]["base64"] = $attachement->getBase64();
+						$data["memories"][$key]["base64"]  = $attachement->getBase64();
 						break;
 					case "ApiBundle\\Entity\\VideoAttachement":
 						/** @var VideoAttachement $attachement */
-						$data["memories"][$key]["type"]    = "video";
-						$data["memories"][$key]["url"] = $attachement->getVideo();
+						$data["memories"][$key]["type"]  = "video";
+						$data["memories"][$key]["url"]   = $attachement->getVideo();
 						break;
 				}
 			}

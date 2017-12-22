@@ -58,6 +58,12 @@ class getAttachementController extends Controller {
 					break;
 					
 			}
+			
+			$event->setViewed(true);
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($event);
+			$em->flush();
+			
 			$data["success"] = true;
 			$data["exists"] = true;
 		}

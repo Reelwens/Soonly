@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NavController, AlertController, ToastController} from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+import { DomSanitizer } from '@angular/platform-browser';
 
 // API
 import { Service } from '../../services/soonly.service';
@@ -23,7 +24,8 @@ export class OpenSurprisePage implements OnInit {
               public navParams: NavParams,
               public storage: Storage,
               public toastCtrl: ToastController,
-              public apiService: Service) {
+              public apiService: Service,
+              private domSanitizer: DomSanitizer) {
 
     this.event = this.navParams.get('event');
   }

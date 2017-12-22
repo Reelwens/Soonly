@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController, NavParams } from 'ionic-angular';
+import {NavController, AlertController, NavParams, ToastController, LoadingController} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions, CaptureVideoOptions } from '@ionic-native/media-capture';
 import { Camera } from '@ionic-native/camera';
@@ -24,7 +24,7 @@ export class CreateBoxPage implements OnInit {
   calendar: any;
   date:     string;
   video:    MediaFile;
-  test:     string = '';
+  private loading: any;
 
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
@@ -32,7 +32,8 @@ export class CreateBoxPage implements OnInit {
               public mediaCapture: MediaCapture,
               public base64: Base64,
               public storage: Storage,
-
+              public loadingCtrl: LoadingController,
+              public toastCtrl: ToastController,
               public apiService: Service) {
     this.calendar = navParams.get('calendar');
     this.date = navParams.get('date');
@@ -75,13 +76,30 @@ export class CreateBoxPage implements OnInit {
       );
   }
 
+  // Move to myCalendarSend page
+  showMyCalendarsSend() : void {
+    this.navCtrl.push(MyCalendarsSendPage);
+  }
+
   // Create base64File variable (picture taken in base64)
   private validImage(medias : MediaFile[]) : void {
     this.base64.encodeFile(medias[0].fullPath).then((base64File: string) => {
       this.storage.get("token").then( key => {
         this.apiService.setApiKey( key );
         this.apiService.createImageAttachement(base64File).subscribe(data => {
-          console.log(data)
+          let attachement = data.message.id;
+          this.apiService.setEvent(this.calendar, this.date, 1, attachement).subscribe(
+            data2 => {
+              if (data2.error === undefined) {
+                this.validationUpdate("Votre évènement a bien été créé !");
+                setTimeout(() => {
+                  this.showMyCalendarsSend();
+                }, 3000);
+              } else {
+                this.validationUpdate("Une erreur a eu lieu, veuillez réessayer...");
+              }
+            }
+          )
         })
       })
     }, (err) => {
@@ -94,5 +112,33 @@ export class CreateBoxPage implements OnInit {
       this.navCtrl.push(MyCalendarsSendPage, {
         video: medias[0].fullPath
       });
+  }
+
+  validationLoaderShow() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Nous vérifions vos données, un instant !'
+    });
+
+    this.loading.present();
+  }
+
+  validationUpdate(message: string) {
+    this.loading.data.content = message;
+    setTimeout(() => {
+      this.validationLoaderRemove();
+    }, 3000);
+  }
+
+  validationLoaderRemove() {
+    this.loading.dismiss();
+  }
+
+  errorToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 5000,
+      position: 'bottom',
+      showCloseButton: true,
+    });
   }
 }
