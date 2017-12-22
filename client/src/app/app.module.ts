@@ -17,6 +17,7 @@ import { CreateBoxPage } from '../pages/createBox/createBox';
 import { CreateMessagePage } from '../pages/createMessage/createMessage';
 import { InscriptionPage } from '../pages/inscription/inscription';
 import { InscriptionNextPage } from '../pages/inscriptionNext/inscriptionNext';
+import { LoginNextPage } from '../pages/loginNext/loginNext';
 import { MemoriesPage } from '../pages/memories/memories';
 import { OpenSurprisePage } from '../pages/openSurprise/openSurprise';
 
@@ -38,6 +39,7 @@ import {HttpClientModule} from "@angular/common/http";
     CreateMessagePage,
     InscriptionPage,
     InscriptionNextPage,
+    LoginNextPage,
     MemoriesPage,
     OpenSurprisePage
   ],
@@ -60,6 +62,7 @@ import {HttpClientModule} from "@angular/common/http";
     CreateMessagePage,
     InscriptionPage,
     InscriptionNextPage,
+    LoginNextPage,
     MemoriesPage,
     OpenSurprisePage
   ],
