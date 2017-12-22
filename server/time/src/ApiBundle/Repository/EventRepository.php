@@ -2,6 +2,7 @@
 
 namespace ApiBundle\Repository;
 
+use ApiBundle\Entity\Calendar;
 use ApiBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
 
@@ -22,5 +23,17 @@ class EventRepository extends EntityRepository
 			->getQuery()
 			->execute();
 		
+	}
+	
+	public function findOneByDate(Calendar $calendar, $date) {
+		$res = $this->createQueryBuilder("event")
+			->andWhere('event.date = :date')
+			->andWhere("event.calendar = :calendar")
+			->setParameter("date", new \DateTime($date))
+			->setParameter("calendar", $calendar)
+			->getQuery()
+			->execute();
+		
+		return $res === [] ? null : $res;
 	}
 }

@@ -22,11 +22,17 @@ export class MyCalendarsSendPage implements OnInit {
 
   calendars: any;
   events: any;
-  calendarid: any = 2;
+  calendarid: any;
+  name: string;
   private fullPath : string = 'assets/imgs/mic.svg';
   private base64 : string = '';
 
-  constructor(public storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams,public apiService: Service) {
+  constructor(public storage: Storage,
+              public navCtrl: NavController,
+              public alertCtrl: AlertController,
+              public navParams: NavParams,
+              public apiService: Service) {
+
     this.calendarid = navParams.get('calendar');
     if(navParams.get('img') != null && navParams.get('base64') != null) {
         this.fullPath = navParams.get('img');
@@ -88,7 +94,7 @@ export class MyCalendarsSendPage implements OnInit {
   showCreateBox(calendar: number, date: string) : void {
     this.navCtrl.push(CreateBoxPage, {
       date: date,
-      calendar: calendar
+      calendar: calendar,
     });
   }
 
@@ -101,9 +107,5 @@ export class MyCalendarsSendPage implements OnInit {
   // Move to inscription page
   showInscription() : void {
     this.navCtrl.push(InscriptionPage);
-  }
-
-  changeDisplayedCalendar(param: number) {
-
   }
 }

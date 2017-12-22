@@ -30,7 +30,6 @@ class CreateEventController extends Controller {
 		$token = $this->getDoctrine()
 		              ->getRepository( "ApiBundle:Token")
 		              ->findOneBy(["token" => $token]);
-		
 		if ($token == null)
 		{
 			$data["error"] = "token.invalid";
@@ -39,17 +38,17 @@ class CreateEventController extends Controller {
 			if ($calendar->getUser() === $token->getUser()) {
 				
 				$event = $this->getDoctrine()->getRepository("ApiBundle:Event")
-				                    ->findOneBy([
-				                    	"calendar"      => $calendar,
-					                    "eventNumber"   => $eventNumber
-				                    ]);
+				                    ->findOneByDate($calendar, $eventDate );
+				
+				
 				if ( $event === null ) {
 					$event = new Event();
 				}
+				dump($event);
 				$calendar->setNumberOfEvents($calendar->getNumberOfEvents()+1);
 				$event->setCalendar( $calendar );
-				$event->setDate( (new \DateTime())->setTimestamp(intval($eventDate)) );
-				$event->setEventNumber( $eventNumber );
+				$event->setDate( new \DateTime($eventDate));
+				$event->setEventNumber( 1 );
 				
 				
 				$attachement = $this->getDoctrine()->getRepository( "ApiBundle:Attachement")->findOneBy(["id_attachement" => $attachement]);
@@ -86,8 +85,6 @@ class CreateEventController extends Controller {
 			} else {
 				$data["error"] = "user.invalid";
 			}
-			
-			
 		}
 		
 		return new JsonResponse($data, 200, ["Access-Control-Allow-Origin" => "*"]);

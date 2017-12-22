@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController, AlertController, NavParams} from 'ionic-angular';
+import {NavController, AlertController, NavParams, ToastController, LoadingController} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Camera } from '@ionic-native/camera';
@@ -22,11 +22,14 @@ export class CreateMessagePage implements OnInit {
   calendar: any;
   message:  string;
   data:     any;
+  private loading: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
               public storage: Storage,
+              public loadingCtrl: LoadingController,
+              public toastCtrl: ToastController,
               public apiService: Service) {
 
     this.date = navParams.get('date');
@@ -44,17 +47,52 @@ export class CreateMessagePage implements OnInit {
     this.navCtrl.pop();
   }
 
+  validationLoaderShow() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Nous vérifions vos données, un instant !'
+    });
+
+    this.loading.present();
+  }
+
+  validationUpdate(message: string) {
+    this.loading.data.content = message;
+    setTimeout(() => {
+      this.validationLoaderRemove();
+    }, 3000);
+  }
+
+  validationLoaderRemove() {
+    this.loading.dismiss();
+  }
+
+  errorToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 5000,
+      position: 'bottom',
+      showCloseButton: true,
+    });
+  }
+
   buildTheEvent() {
     if (this.message !== undefined ) {
+      this.validationLoaderShow();
       this.storage.get("token").then( key => {
-        this.apiService.setApiKey( key);
+        this.apiService.setApiKey( key );
         this.apiService.createMessageAttachement(1, this.message).subscribe(
           data => {
             let attachement = data.message.id;
-
             this.apiService.setEvent(this.calendar, this.date, 1, attachement).subscribe(
               data2 => {
-                console.log(data2);
+                if (data2.error === undefined) {
+                  this.validationUpdate("Votre évènement a bien été créé");
+                  setTimeout(() => {
+                    this.showMyCalendarsSend();
+                  }, 3000);
+                } else {
+                  this.validationUpdate("Une erreur a eu lieu, veuillez réessayer...");
+                }
               }
             )
           }
@@ -64,7 +102,7 @@ export class CreateMessagePage implements OnInit {
   }
 
   // Move to myCalendarSend page
-  showMyCalendarsSend(name: string) : void {
+  showMyCalendarsSend() : void {
     this.navCtrl.push(MyCalendarsSendPage);
   }
 }
