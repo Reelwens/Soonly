@@ -4,7 +4,11 @@
 </div>
 
 <div class="mainContent" [ngClass]="{'noBox': (calendars == undefined) || (calendars == null)}">
-
+<!--
+.fill : "Case remplie"
+.add : "Cliquez pour ajouter"
+.open : Date antérieure/égale à aujourd'hui et case ouverte
+-->
   <div class="subHeader">
     <div class="subHeader">
       <div *ngFor="let calendar of calendars; let isFirst = first" class="user"
@@ -43,6 +47,10 @@
       <img src="assets/imgs/add.svg" alt="Image">
     </div>
   </ion-content>
+</div>
+
+<div class="addButton" (tap)="showCalendarCreationOne()">
+  <img src="assets/imgs/add.svg" alt="Image">
 </div>
 
 <div class="tabBar hide-on-keyboard-open">

@@ -1,6 +1,6 @@
 <div class="topHeader">
   <img src="assets/imgs/logo-soonly.svg" alt="Image" class="logo">
-  <img src="assets/imgs/settings.svg" alt="Image" class="settings">
+  <img src="assets/imgs/settings.svg" alt="Image" class="settings" (tap)=showOpenSurprise()>
 </div>
 
 <div class="mainContent" [ngClass]="{'noBox': calendars == null}">
@@ -14,7 +14,10 @@
     </div>
   </div>
 
-
+<!--
+.open : Case ouverte
+.discover : "Ouvrez vite" Case non ouverte et ouvrable
+-->
   <ion-content>
     <div class="calendarGroup" >
       <div *ngFor="let event of events" class="case" [ngClass]="{'add': event.id===-1, 'fill': event.id!==-1, 'open': event.viewed, 'discover': event.discover}">
@@ -33,6 +36,10 @@
       <img src="assets/imgs/add.svg" alt="Image">
     </div>
   </ion-content>
+</div>
+
+<div class="addButton" (tap)="showCalendarCreationOne()">
+  <img src="assets/imgs/add.svg" alt="Image">
 </div>
 
 <div class="tabBar hide-on-keyboard-open">

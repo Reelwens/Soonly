@@ -11,6 +11,7 @@ import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 import { CalendarCreationOnePage } from '../calendarCreationOne/calendarCreationOne';
 import { MemoriesPage } from '../memories/memories';
 import { InscriptionPage } from '../inscription/inscription';
+import { OpenSurprisePage } from '../openSurprise/openSurprise';
 
 @Component({
   selector: 'page-myCalendarsReceived',
@@ -72,6 +73,11 @@ export class MyCalendarsReceivedPage implements OnInit {
   // Move to myCalendarSend page
   showMyCalendarsSend(name: string) : void {
     this.navCtrl.push(MyCalendarsSendPage,{},{animate:false});
+  }
+
+  // Move to openSurprise page
+  showOpenSurprise(name: string) : void {
+    this.navCtrl.push(OpenSurprisePage);
   }
 
   // Move to myCalendarReceived page
