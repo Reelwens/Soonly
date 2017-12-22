@@ -29,7 +29,7 @@
               'add': event.id===-1,
               'fill': event.id!==-1,
               'open': event.viewed,
-              'discover': event.discover}"
+              'discover': event.discover && !event.viewed }"
            (tap)="showCreateBox(event.calendar, event.date)"
       >
         <div class="content">
