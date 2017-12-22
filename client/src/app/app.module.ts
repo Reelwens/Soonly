@@ -18,6 +18,7 @@ import { CreateMessagePage } from '../pages/createMessage/createMessage';
 import { InscriptionPage } from '../pages/inscription/inscription';
 import { InscriptionNextPage } from '../pages/inscriptionNext/inscriptionNext';
 import { MemoriesPage } from '../pages/memories/memories';
+import { OpenSurprisePage } from '../pages/openSurprise/openSurprise';
 
 // API
 import { Service } from '../services/soonly.service';
@@ -37,7 +38,8 @@ import {HttpClientModule} from "@angular/common/http";
     CreateMessagePage,
     InscriptionPage,
     InscriptionNextPage,
-    MemoriesPage
+    MemoriesPage,
+    OpenSurprisePage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import {HttpClientModule} from "@angular/common/http";
     CreateMessagePage,
     InscriptionPage,
     InscriptionNextPage,
-    MemoriesPage
+    MemoriesPage,
+    OpenSurprisePage
   ],
   providers: [
     Service,
