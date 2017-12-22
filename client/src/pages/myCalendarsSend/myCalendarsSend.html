@@ -35,9 +35,9 @@
         <div class="content">
           <p class="dayLeft">J-{{ event.dayLeft }}</p>
           <p class="dayNumber">{{ event.dayNumber }}</p>
-          <p class="info" *ngIf="event.id===-1">Remplir la case</p>
-          <p class="info" *ngIf="event.viewed">Vu !</p>
-          <p class="info" *ngIf="!event.viewed && event.discover || event.toBeSeen">Bientôt vu !</p>
+          <p class="info" *ngIf="event.id===-1">Cliquer pour ajouter</p>
+          <p class="info" *ngIf="event.viewed">Ouvert</p>
+          <p class="info" *ngIf="!event.viewed && event.discover || event.toBeSeen">Case remplie</p>
         </div>
         <div class="mask"></div>
         <div class="mask2"></div>
