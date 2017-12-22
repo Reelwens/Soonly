@@ -6,7 +6,7 @@ import { Camera } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
 
 // API
-//import { Service } from '../../services/soonly.service';
+import { Service } from '../../services/soonly.service';
 
 // Pages
 import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
@@ -20,14 +20,20 @@ export class CreateMessagePage implements OnInit {
 
   date:     string;
   calendar: any;
+  message:  string;
+  data:     any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
-              public storage: Storage) {
+              public storage: Storage,
+              public apiService: Service) {
 
     this.date = navParams.get('date');
     this.calendar = navParams.get('calendar');
+
+    let tmpDate = this.date.split("/");
+    this.date = tmpDate[2] + "-" + tmpDate[1] + "-" + tmpDate[0];
   }
 
   ngOnInit(): void {
@@ -36,6 +42,25 @@ export class CreateMessagePage implements OnInit {
   // Move back
   showBack() : void {
     this.navCtrl.pop();
+  }
+
+  buildTheEvent() {
+    if (this.message !== undefined ) {
+      this.storage.get("token").then( key => {
+        this.apiService.setApiKey( key);
+        this.apiService.createMessageAttachement(1, this.message).subscribe(
+          data => {
+            let attachement = data.message.id;
+
+            this.apiService.setEvent(this.calendar, this.date, 1, attachement).subscribe(
+              data2 => {
+                console.log(data2);
+              }
+            )
+          }
+        );
+      })
+    }
   }
 
   // Move to myCalendarSend page

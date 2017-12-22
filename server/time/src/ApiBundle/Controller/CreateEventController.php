@@ -54,6 +54,7 @@ class CreateEventController extends Controller {
 				
 				$attachement = $this->getDoctrine()->getRepository( "ApiBundle:Attachement")->findOneBy(["id_attachement" => $attachement]);
 				$event->setAttachement( $attachement );
+				$event->setViewed( false );
 				
 				$em = $this->getDoctrine()->getManager();
 				$em->persist( $event );

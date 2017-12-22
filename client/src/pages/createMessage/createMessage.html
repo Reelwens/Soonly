@@ -6,9 +6,9 @@
 <div class="mainContent">
   <ion-content>
     <form action="">
-      <textarea type="text-area" placeholder="Votre message..."></textarea>
+      <textarea type="text" placeholder="Votre message..." [(ngModel)]="message" name="message"></textarea>
 
-      <div class="button active" (tap)=showMyCalendarsSend()>Envoyer</div>
+      <div class="button active" (tap)=buildTheEvent()>Envoyer</div>
     </form>
   </ion-content>
 </div>

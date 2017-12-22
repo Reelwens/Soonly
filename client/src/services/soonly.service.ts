@@ -73,22 +73,15 @@ export class Service implements OnInit{
   }
 
 
-  public setEvent(calendarID: number, eventDate: number, eventNumber: number, attachementID: number): Promise<any> {
+  public setEvent(calendarID: number, eventDate: string, eventNumber: number, attachementID: number): Observable<any> {
     const url = `${this.baseUrl}setEvent/${this.apiKey}/${calendarID}/${eventDate}/${eventNumber}/${attachementID}`;
-
-    return this.http.get(url)
-      .toPromise() // To have a reply
-      .then(response => response )
-      .catch(error => console.log('Une erreur est survenue : ' + error))
+    return this.http.get(url);
   }
 
-  public createMessageAttachement(theme: number, message: string): Promise<any> {
+  public createMessageAttachement(theme: number, message: string): Observable<any> {
     const url = `${this.baseUrl}createMessageAttachement/${this.apiKey}/${theme}/${message}`;
 
-    return this.http.get(url)
-      .toPromise() // To have a reply
-      .then(response => response )
-      .catch(error => console.log('Une erreur est survenue : ' + error))
+    return this.http.get(url);
   }
 
   public createImageAttachement(image: string): Observable<any> {
