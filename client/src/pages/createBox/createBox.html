@@ -1,6 +1,6 @@
 <div class="topHeader">
   <img src="assets/imgs/close.svg" alt="Image" class="back" (tap)=showBack()>
-  <p>5 Décembre</p>
+  <p>Case du {{ date }}</p>
 </div>
 
 <div class="mainContent">
@@ -21,7 +21,7 @@
         <p>Vidéo</p>
       </div>
 
-      <div class="sendElement" (tap)=showCreateMessage()>
+      <div class="sendElement" (tap)="showCreateMessage(calendar, date)">
         <img src="assets/imgs/text.svg" alt="Image">
         <p>Message</p>
       </div>

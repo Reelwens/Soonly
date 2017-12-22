@@ -31,8 +31,6 @@ export class MemoriesPage implements OnInit {
         this.apiService.getMemories().subscribe(
           data => {
             component.memories = data.memories;
-            console.log(data);
-
           }
         )
       }

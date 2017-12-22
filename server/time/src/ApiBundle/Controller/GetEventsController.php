@@ -46,7 +46,8 @@ class GetEventsController extends Controller {
 				foreach ( $dateRange as $key2 => $date ){
 					/** @var Event $event */
 					$event = $this->getDoctrine()->getRepository("ApiBundle:Event")->findOneBy([ "date" => $date, "calendar" => $calendar]);
-					$data["calendars"][$calendar->getId()][$key2]["date"] = $date->format("d/m/Y");
+					$data["calendars"][$calendar->getId()][$key2]["date"]       = $date->format("d/m/Y");
+					$data["calendars"][$calendar->getId()][$key2]["calendar"]   = $calendar->getId();
 					if ($event === null ) {
 						$data["calendars"][$calendar->getId()][$key2]["id"] = -1;
 						$data["calendars"][$calendar->getId()][$key2]["dayLeft"]        = $date->diff($calendar->getEndDate())->days - 1 === 0 ? "J" : $date->diff($calendar->getEndDate())->days - 1;

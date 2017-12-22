@@ -85,8 +85,11 @@ export class MyCalendarsSendPage implements OnInit {
   }
 
   // Move to createBox page
-  showCreateBox(name: string) : void {
-    this.navCtrl.push(CreateBoxPage);
+  showCreateBox(calendar: number, date: string) : void {
+    this.navCtrl.push(CreateBoxPage, {
+      date: date,
+      calendar: calendar
+    });
   }
 
   showTheCalendar(id: number) {
@@ -98,17 +101,6 @@ export class MyCalendarsSendPage implements OnInit {
   // Move to inscription page
   showInscription() : void {
     this.navCtrl.push(InscriptionPage);
-  }
-
-
-  // Print alert
-  alertAction() : void {
-    let alert = this.alertCtrl.create({
-      title: 'Bravo !',
-      subTitle: 'Tu as appuyé sur le bouton !',
-      buttons: ['OK']
-    });
-    alert.present();
   }
 
   changeDisplayedCalendar(param: number) {

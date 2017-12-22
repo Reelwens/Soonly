@@ -21,23 +21,35 @@ export class CreateBoxPage implements OnInit {
 
   // variables
   username: string;
-  video: MediaFile;
-  test: string = '';
+  calendar: any;
+  date:     string;
+  video:    MediaFile;
+  test:     string = '';
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public mediaCapture: MediaCapture, public base64: Base64, public storage: Storage) {
+  constructor(public navCtrl: NavController,
+              public alertCtrl: AlertController,
+              public navParams: NavParams,
+              public mediaCapture: MediaCapture,
+              public base64: Base64,
+              public storage: Storage) {
+    this.calendar = navParams.get('calendar');
+    this.date = navParams.get('date');
   }
 
   ngOnInit(): void {
   }
 
   // Move back
-  showBack(name: string) : void {
+  showBack() : void {
     this.navCtrl.pop();
   }
 
   // Move to createMessage page
-  showCreateMessage(name: string) : void {
-    this.navCtrl.push(CreateMessagePage);
+  showCreateMessage(calendar: any, date:string) : void {
+    this.navCtrl.push(CreateMessagePage, {
+      calendar: calendar,
+      date: date
+    });
   }
 
   // Open audio

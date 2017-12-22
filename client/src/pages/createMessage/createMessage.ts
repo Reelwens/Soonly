@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import {NavController, AlertController, NavParams} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Camera } from '@ionic-native/camera';
@@ -18,14 +18,23 @@ import { MyCalendarsSendPage } from '../myCalendarsSend/myCalendarsSend';
 })
 export class CreateMessagePage implements OnInit {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage) {
+  date:     string;
+  calendar: any;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public alertCtrl: AlertController,
+              public storage: Storage) {
+
+    this.date = navParams.get('date');
+    this.calendar = navParams.get('calendar');
   }
 
   ngOnInit(): void {
   }
 
   // Move back
-  showBack(name: string) : void {
+  showBack() : void {
     this.navCtrl.pop();
   }
 
